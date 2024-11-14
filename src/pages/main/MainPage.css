@@ -1,0 +1,31 @@
+.mainPageDiv {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+}
+
+.mainPageSvgDiv {
+  cursor: pointer;
+  transform: skewY(16deg);
+  left: 20%;
+  position: relative;
+}
+
+.mainPageSvgDiv .mainPageSvgRe {
+  position: absolute;
+  top: 150%;
+  left: -45%;
+  width: 90%;
+  transform: scaleY(-1) skewX(50deg);
+  filter: blur(3px) brightness(0.7); 
+  opacity: 0.3;
+}
+
+.mainPageArrowDiv {
+  position: absolute;
+  left: -20%;
+  top: 45%;
+  
+}
+

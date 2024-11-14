@@ -7,8 +7,8 @@ import NavBarLeft from "../../components/navbarleft/NavBarLeft";
 import { GlitchHandle } from "react-powerglitch";
 
 type NavBarProps = {
-  pagesAnimatVar: Variants
   navGlitch: GlitchHandle
+  setShowMain: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const consoleAnimateVar: Variants = {
@@ -35,7 +35,7 @@ const consoleAnimateVar: Variants = {
   })
 }
 
-const NavBar: React.FC<NavBarProps> = ({pagesAnimatVar, navGlitch}) => {
+const NavBar: React.FC<NavBarProps> = ({ navGlitch, setShowMain}) => {
   const [consoleView, setConsoleView] = useState(false)
   
   
@@ -50,7 +50,7 @@ const NavBar: React.FC<NavBarProps> = ({pagesAnimatVar, navGlitch}) => {
 
   return (
     <>
-      <NavBarTop pagesAnimatVar={pagesAnimatVar} handleConsoleView={handleConsoleView} setConsoleView={setConsoleView} navGlitch={navGlitch}/>
+      <NavBarTop handleConsoleView={handleConsoleView} setConsoleView={setConsoleView} navGlitch={navGlitch} setShowMain={setShowMain}/>
       <NavBarRight consoleAnimateVar={consoleAnimateVar} setConsoleView={setConsoleView} consoleView={consoleView} navGlitch={navGlitch}/>
       <NavBarLeft consoleAnimateVar={consoleAnimateVar} setConsoleView={setConsoleView} consoleView={consoleView} navGlitch={navGlitch}/>
     </>

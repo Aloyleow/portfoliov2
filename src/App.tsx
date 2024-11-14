@@ -4,6 +4,7 @@ import { useGlitch, GlitchHandle } from 'react-powerglitch';
 
 import MainPage from "./pages/main/MainPage"
 import NavBar from "./pages/navbar/NavBar"
+import { useState } from "react";
 
 const pagesAnimatVar: Variants = {
   initial: {
@@ -20,7 +21,26 @@ const pagesAnimatVar: Variants = {
   },
 };
 
+const arrowAnimateVar: Variants = {
+  initial : {
+    opacity: 0,
+    x: -20,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: 1,
+      duration: 0.6,
+      type: "spring",
+      stiffness: 400, 
+      damping: 10,
+    }
+  },
+}
+
 function App() {
+  const [showMain, setShowMain] = useState(false)
 
   const navGlitch: GlitchHandle = useGlitch({
     playMode: "click",
@@ -43,9 +63,9 @@ function App() {
   
   return (
     <>
-      <NavBar pagesAnimatVar={pagesAnimatVar} navGlitch={navGlitch}/>
+      <NavBar navGlitch={navGlitch} setShowMain={setShowMain}/>
       <Routes>
-        <Route path="/" element={<MainPage/>}/>
+        <Route path="/" element={<MainPage showMain={showMain} arrowAnimateVar={arrowAnimateVar}/>} />
       </Routes>
     </>
   )

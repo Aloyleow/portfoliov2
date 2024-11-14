@@ -35,8 +35,8 @@
   stroke: black;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: textAnimation 4s linear, textAnimationFinish 4s linear forwards; 
-  animation-delay: 2s;
+  animation: textAnimation 4.5s linear, textAnimationFinish 4.5s linear forwards; 
+  animation-delay: 1s;
   
 }
 

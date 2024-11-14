@@ -1,0 +1,14 @@
+.navBarRightMainDiv {
+  position: fixed;
+  right: 0;
+  z-index: 2;
+}
+
+.navBarRightCont {
+  display: flex;
+  flex-direction: column;
+}
+
+.navBarRightLinks {
+  writing-mode: vertical-rl;
+}

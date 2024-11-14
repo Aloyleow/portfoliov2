@@ -1,0 +1,62 @@
+.navBarTopMainDiv {
+  position: fixed;
+  top: 0;
+}
+
+.navBarTopDiv {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.navBarTopDiv div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.navBarTopImg {
+  cursor: pointer;
+  width: 120px;
+}
+
+.navBarTopSvgDiv {
+  width: 280px;
+  height: 58px
+}
+
+.navBarTopSvgDiv svg{
+  width: 280px;
+}
+
+.navBarTopSvgDiv svg path{
+  fill: transparent;
+  stroke: black;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: textAnimation 4s linear, textAnimationFinish 4s linear forwards; 
+  animation-delay: 2s;
+  
+}
+
+@keyframes textAnimation {
+  40% {
+    fill: transparent;
+  }
+  100% {
+    fill:#333333;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes textAnimationFinish {
+  40% {
+    fill:#333333;
+  }
+  100% {
+    fill: transparent;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+}

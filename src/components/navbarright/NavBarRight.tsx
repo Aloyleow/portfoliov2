@@ -1,12 +1,14 @@
 import { useNavigate } from "react-router-dom"
 import "./NavBarRight.css"
 
-import { AnimatePresence, motion } from "motion/react"
+import { AnimatePresence, motion, Variants } from "motion/react"
+import React from "react"
 
 type Links = {
   name: string
   route: string
 }[]
+
 
 const links: Links = [
   {
@@ -31,23 +33,44 @@ const links: Links = [
   }
 ]
 
-const NavBarRight = () => {
+
+type NavBarRightProps = {
+  setConsoleView: React.Dispatch<React.SetStateAction<boolean>>;
+  consoleView: boolean
+  consoleAnimateVar: Variants
+}
+
+
+const NavBarRight: React.FC<NavBarRightProps> = ({ consoleAnimateVar, setConsoleView, consoleView}) => {
   const navigate = useNavigate()
 
   return (
-    <AnimatePresence>
-      <div className="navBarRightMainDiv">
-        <motion.div>
-          <div className="navBarRightCont">
-            {links.map((item) => (
-              <div className="navBarRightLinks" onClick={() => navigate(item.route)}>
+    <div className="navBarRightMainDiv">
+      <AnimatePresence>
+        {consoleView && (
+          <motion.div
+            className="navBarRightCont"
+            variants={consoleAnimateVar}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            {links.map((item, index) => (
+              <div
+                key={index}
+                className="navBarRightLinks"
+                onClick={() => {
+                  navigate(item.route);
+                  setConsoleView(false);
+                }}
+              >
                 <h3>{item.name}</h3>
               </div>
             ))}
-          </div>
-        </motion.div>
-      </div>
-    </AnimatePresence>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }
 

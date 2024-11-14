@@ -1,14 +1,20 @@
 .navBarRightMainDiv {
   position: fixed;
   right: 0;
-  z-index: 2;
 }
 
 .navBarRightCont {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
 }
 
-.navBarRightLinks {
+.navBarRightCont div{
   writing-mode: vertical-rl;
+  
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

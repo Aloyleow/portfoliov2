@@ -3,6 +3,7 @@ import "./NavBarRight.css"
 
 import { AnimatePresence, motion, Variants } from "motion/react"
 import React from "react"
+import { GlitchHandle } from "react-powerglitch"
 
 type Links = {
   name: string
@@ -38,10 +39,11 @@ type NavBarRightProps = {
   setConsoleView: React.Dispatch<React.SetStateAction<boolean>>;
   consoleView: boolean
   consoleAnimateVar: Variants
+  navGlitch: GlitchHandle
 }
 
 
-const NavBarRight: React.FC<NavBarRightProps> = ({ consoleAnimateVar, setConsoleView, consoleView}) => {
+const NavBarRight: React.FC<NavBarRightProps> = ({ consoleAnimateVar, setConsoleView, consoleView, navGlitch}) => {
   const navigate = useNavigate()
 
   return (
@@ -58,11 +60,11 @@ const NavBarRight: React.FC<NavBarRightProps> = ({ consoleAnimateVar, setConsole
             {links.map((item, index) => (
               <div
                 key={index}
-                className="navBarRightLinks"
                 onClick={() => {
                   navigate(item.route);
                   setConsoleView(false);
                 }}
+                ref={navGlitch.ref}
               >
                 <h3>{item.name}</h3>
               </div>

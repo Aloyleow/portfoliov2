@@ -1,0 +1,33 @@
+.navBarLeftMainDiv {
+  position: fixed;
+  left: 0
+}
+
+.navBarLeftCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+
+.navBarLeftSet {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50px;
+  height: 10vh;
+}
+
+.navBarLeftSet div {
+  cursor: pointer;
+}
+
+.navBarLeftLogo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50px;
+  height: 20vh;
+}

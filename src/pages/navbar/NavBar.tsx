@@ -3,9 +3,12 @@ import NavBarTop from "../../components/navbartop/NavBarTop"
 import "./NavBar.css"
 import React, {useState} from "react"
 import { Variants } from "motion/react";
+import NavBarLeft from "../../components/navbarleft/NavBarLeft";
+import { GlitchHandle } from "react-powerglitch";
 
 type NavBarProps = {
   pagesAnimatVar: Variants
+  navGlitch: GlitchHandle
 }
 
 const consoleAnimateVar: Variants = {
@@ -18,7 +21,7 @@ const consoleAnimateVar: Variants = {
     x: 0,
     transition: {
       delay: 0.1,
-      duration: 0.3,
+      duration: 0.6,
       ease: "easeInOut"
     }
   },
@@ -27,12 +30,12 @@ const consoleAnimateVar: Variants = {
     x: num,
     transition: {
       delay: 0.1,
-      duration: 0.3,
+      duration: 0.6,
     }
   })
 }
 
-const NavBar: React.FC<NavBarProps> = ({pagesAnimatVar}) => {
+const NavBar: React.FC<NavBarProps> = ({pagesAnimatVar, navGlitch}) => {
   const [consoleView, setConsoleView] = useState(false)
   
   
@@ -47,8 +50,9 @@ const NavBar: React.FC<NavBarProps> = ({pagesAnimatVar}) => {
 
   return (
     <>
-      <NavBarTop pagesAnimatVar={pagesAnimatVar} handleConsoleView={handleConsoleView}/>
-      <NavBarRight consoleAnimateVar={consoleAnimateVar} setConsoleView={setConsoleView} consoleView={consoleView}/>
+      <NavBarTop pagesAnimatVar={pagesAnimatVar} handleConsoleView={handleConsoleView} setConsoleView={setConsoleView} navGlitch={navGlitch}/>
+      <NavBarRight consoleAnimateVar={consoleAnimateVar} setConsoleView={setConsoleView} consoleView={consoleView} navGlitch={navGlitch}/>
+      <NavBarLeft consoleAnimateVar={consoleAnimateVar} setConsoleView={setConsoleView} consoleView={consoleView} navGlitch={navGlitch}/>
     </>
   )
 }

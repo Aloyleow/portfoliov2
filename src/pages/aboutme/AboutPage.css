@@ -1,0 +1,130 @@
+.aboutPageFirstSectSvg .aboutPageSvgPathBlack {
+  fill: transparent;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation-delay: 1s;  
+  stroke: black;
+  animation: nameBlackAnimation 4.5s linear forwards; 
+}
+
+.aboutPageFirstSectSvg .aboutPageSvgPathBlue {
+  fill: transparent;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation-delay: 1s;  
+  stroke: #3176AF;
+  animation: nameBlueAnimation 4.5s linear forwards;
+}
+
+@keyframes nameBlueAnimation {
+  40% {
+    fill: transparent;
+  }
+  100% {
+    fill:#3176AF;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes nameBlackAnimation {
+  40% {
+    fill: transparent;
+  }
+  100% {
+    fill:#333333;
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .aboutPageFirstSectDiv {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .aboutPageFirstSectCont {
+    max-width: 88vw;
+  }
+
+  .aboutPageFirstSectSvg {
+    width: 38vh;
+  }
+
+  .aboutPageFirstSectTyped {
+    margin-top: 5%;
+    width: 88vw;
+    height: 200px;
+  }
+
+  .aboutPageFirstSectArrow {
+    height: 3vh;
+    width: 50px;
+  }
+
+  .aboutPageSecondSectDiv {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .aboutPageRingCont {
+    height: 50vh;
+    width: 88vw;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+
+  .aboutPageRevImage {
+    
+    width: 42vh;
+    filter: blur(1px) brightness(0.3);
+  }
+
+  .aboutPageRingCont .aboutPageRingContTwo {
+    position: absolute;
+    height: 280px;
+    width: 200px;
+    top: 73%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+  }
+
+
+
+
+
+  @keyframes autoRun {
+    from{
+      transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    } to {
+      transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+  }
+
+  .aboutPageRingCont .aboutPageRingContTwo .aboutPageRing {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+      rotateY(calc((var(--position) - 1) * (360/ var(--quantity)) * 1deg))
+      translateZ(200px);
+    
+  }
+
+  .aboutPageRingContent {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+  }
+
+
+}

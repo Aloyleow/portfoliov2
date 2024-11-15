@@ -1,10 +1,11 @@
-import { Routes, Route } from "react-router-dom"
-import { Variants } from "motion/react";
+import { Routes, Route, useLocation } from "react-router-dom"
+import { AnimatePresence, Variants } from "motion/react";
 import { useGlitch, GlitchHandle } from 'react-powerglitch';
 
 import MainPage from "./pages/main/MainPage"
 import NavBar from "./pages/navbar/NavBar"
 import { useState } from "react";
+import AboutPage from "./pages/aboutme/AboutPage";
 
 const pagesAnimatVar: Variants = {
   initial: {
@@ -16,31 +17,45 @@ const pagesAnimatVar: Variants = {
     scale: 1, 
     transition: {
       duration: 1.2, 
-      ease: "easeIn",
+      ease: "easeInOut",
     },
   },
+  exit: {
+    opacity: 0,
+    scale: 0.8,
+    transition: {
+      delay: 0.1,
+      duration: 1.2,
+    }
+  }
 };
 
 const arrowAnimateVar: Variants = {
-  initial : {
+  initial : ({ xLen, yLen }: { xLen: number; yLen: number }) => ({
     opacity: 0,
-    x: -20,
-  },
+    x: xLen,
+    y: yLen,
+  }),
   animate: {
     opacity: 1,
     x: 0,
+    y: 0,
     transition: {
-      delay: 1,
-      duration: 0.6,
+      duration: 2,
       type: "spring",
       stiffness: 400, 
       damping: 10,
+      repeat: Infinity,
+      repeatType: "loop",
+      repeatDelay: 6,
     }
   },
 }
 
 function App() {
   const [showMain, setShowMain] = useState(false)
+
+  const location = useLocation()
 
   const navGlitch: GlitchHandle = useGlitch({
     playMode: "click",
@@ -60,13 +75,35 @@ function App() {
       iterations: 1, 
     },
   });
+
+  const arrowGlitch: GlitchHandle = useGlitch({
+    playMode: "always",
+    createContainers: true,
+    hideOverflow: true,
+    glitchTimeSpan: {
+      start: 0.0,
+      end: 0.3,   
+    },
+    shake: false,
+    slice: {
+      count: 12, 
+      velocity: 16, 
+    },
+    timing: {
+      duration: 5000, 
+      iterations: Infinity, 
+    },
+  });
   
   return (
     <>
       <NavBar navGlitch={navGlitch} setShowMain={setShowMain}/>
-      <Routes>
-        <Route path="/" element={<MainPage showMain={showMain} arrowAnimateVar={arrowAnimateVar}/>} />
+      <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<MainPage showMain={showMain} pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar}/>} />
+        <Route path="/about" element={<AboutPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>
       </Routes>
+      </AnimatePresence>
     </>
   )
 }

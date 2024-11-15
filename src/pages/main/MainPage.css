@@ -1,13 +1,6 @@
-.mainPageDiv {
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  place-items: center;
-}
-
 .mainPageSvgDiv {
   cursor: pointer;
-  transform: skewY(16deg);
+  transform: skewY(16deg) skewX(1deg);
   left: 20%;
   position: relative;
 }

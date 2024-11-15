@@ -1,22 +1,21 @@
-import { AnimatePresence, motion, Variants } from "motion/react"
+import { motion, Variants } from "motion/react"
 import "./MainPage.css"
 import { useGlitch, GlitchHandle } from 'react-powerglitch';
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 type MainPageProps = {
   showMain: boolean
+  pagesAnimatVar: Variants
   arrowAnimateVar: Variants
 }
 
-
-
-
-
-const MainPage: React.FC<MainPageProps> = ({showMain, arrowAnimateVar}) => {
+const MainPage: React.FC<MainPageProps> = ({showMain, pagesAnimatVar, arrowAnimateVar}) => {
+  const navigate = useNavigate()
   
   const mainGlitch: GlitchHandle = useGlitch({
     playMode: "always",
-    hideOverflow: true,
+    
     glitchTimeSpan: {
       start: 0,
       end: 0.4,   
@@ -52,10 +51,14 @@ const MainPage: React.FC<MainPageProps> = ({showMain, arrowAnimateVar}) => {
   });
   
   return (
-    <div className="mainPageDiv">
-      <AnimatePresence>
-        {showMain ? (<motion.div >
-          <div className="mainPageSvgDiv">
+    <div className="pagesLayoutDiv">
+        {showMain ? (<motion.div 
+            variants={pagesAnimatVar}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+          <div className="mainPageSvgDiv" onClick={() => navigate("/about")}>
             <div ref={mainGlitch.ref}>
               <svg width="25vh" viewBox="0 0 716 666" fill="none" xmlns="http://www.w3.org/2000/svg" className="mainPageSvg">
                 <path
@@ -77,12 +80,12 @@ const MainPage: React.FC<MainPageProps> = ({showMain, arrowAnimateVar}) => {
               variants={arrowAnimateVar}
               initial="initial"
               animate="animate"
+              custom={{xLen: -50, yLen: 0}}
             >
               <img src="/arrowRight.svg" alt="rightarrow" style={{width: "3vh"}}/>
             </motion.div>
           </div>
         </motion.div>) : null}
-      </AnimatePresence>
     </div>
   )
 }

@@ -6,26 +6,28 @@ import MainPage from "./pages/main/MainPage"
 import NavBar from "./pages/navbar/NavBar"
 import { useState } from "react";
 import AboutPage from "./pages/aboutme/AboutPage";
+import ProjectPage from "./pages/projects/ProjectPage";
 
 const pagesAnimatVar: Variants = {
   initial: {
     opacity: 0,
-    scale: 0.8,
+    y: -100
   },
   animate: {
     opacity: 1,
-    scale: 1, 
+    y: 0,
     transition: {
-      duration: 1.2, 
-      ease: "easeInOut",
+      type: "spring",
+      stiffness: 500, 
+      damping: 10,    
+      
     },
   },
   exit: {
     opacity: 0,
-    scale: 0.8,
+    y: 100,
     transition: {
-      delay: 0.1,
-      duration: 1.2,
+      duration: 0.2,
     }
   }
 };
@@ -101,7 +103,8 @@ function App() {
       <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<MainPage showMain={showMain} pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar}/>} />
-        <Route path="/about" element={<AboutPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>
+        <Route path="/about" element={<AboutPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>} />
+        <Route path="/proj" element={<ProjectPage pagesAnimatVar={pagesAnimatVar}/>} />
       </Routes>
       </AnimatePresence>
     </>

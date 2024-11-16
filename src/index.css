@@ -14,4 +14,49 @@
   place-items: center;
 }
 
+.arrImgRight {
+  width: 2vh;
+}
 
+.arrImgLeft {
+  transform: rotate(180deg);
+  width: 2vh;
+}
+
+.pageHeading svg path {
+  fill: transparent;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation-delay: 1s;  
+  stroke: black;
+  animation: headingAnimation 4s linear forwards; 
+}
+
+@keyframes headingAnimation {
+  40% {
+    fill: transparent;
+  }
+  100% {
+    fill:#333333;
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (min-width: 767px) {
+  .navNextDiv {
+    font-size: smaller;
+    height: 30px;
+    position: absolute;
+    bottom: 25%;
+    text-align: end;
+  }
+  
+  .navNextImgDiv {
+    cursor: pointer;
+    height: 60px
+  }
+  
+  .navNextImg {
+    width: 5vh;
+  }
+}

@@ -1,0 +1,66 @@
+@media (max-width: 767px) {
+  .ringMainCont {
+    height: 20vh;
+    width: 88vw; 
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .ringMainCont .ringSubCont {
+    position: absolute;
+    height: 280px;
+    width: 200px;
+    top: 22%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 26s linear infinite;
+  }
+}
+
+@media (min-width: 768px) {
+  .ringMainCont {
+    height: 30vh;
+    width: 35vw; 
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .ringMainCont .ringSubCont {
+    position: absolute;
+    height: 280px;
+    width: 200px;
+    top: 38%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 26s linear infinite;
+  } 
+}
+
+.ringContent {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  cursor: pointer;
+}
+
+@keyframes autoRun {
+  from{
+    transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+  } to {
+    transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+  }
+}
+
+.ringMainCont .ringSubCont .ringDiv {
+  position: absolute;
+  inset: 0 0 0 0;
+  transform: 
+    rotateY(calc((var(--position) - 1) * (360/ var(--quantity)) * 1deg))
+    translateZ(188px);
+  
+}

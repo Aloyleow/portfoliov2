@@ -82,7 +82,7 @@ const MainPage: React.FC<MainPageProps> = ({showMain, pagesAnimatVar, arrowAnima
               animate="animate"
               custom={{xLen: -50, yLen: 0}}
             >
-              <img src="/arrowRight.svg" alt="rightarrow" style={{width: "3vh"}}/>
+              <img src="/arrow.svg" alt="rightarrow" style={{width: "3vh"}}/>
             </motion.div>
           </div>
         </motion.div>) : null}

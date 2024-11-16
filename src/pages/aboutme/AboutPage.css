@@ -1,4 +1,13 @@
-.aboutPageFirstSectSvg .aboutPageSvgPathBlack {
+.aboutPageDiv {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutPageIntroSvg .aboutPageSvgPathBlack {
   fill: transparent;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
@@ -7,7 +16,7 @@
   animation: nameBlackAnimation 4.5s linear forwards; 
 }
 
-.aboutPageFirstSectSvg .aboutPageSvgPathBlue {
+.aboutPageIntroSvg .aboutPageSvgPathBlue {
   fill: transparent;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
@@ -15,6 +24,7 @@
   stroke: #3176AF;
   animation: nameBlueAnimation 4.5s linear forwards;
 }
+
 
 @keyframes nameBlueAnimation {
   40% {
@@ -37,94 +47,77 @@
 }
 
 @media (max-width: 767px) {
-  .aboutPageFirstSectDiv {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
-  .aboutPageFirstSectCont {
+  .aboutPageIntroCont {
     max-width: 88vw;
   }
 
-  .aboutPageFirstSectSvg {
+  .aboutPageIntroSvg {
     width: 38vh;
   }
 
-  .aboutPageFirstSectTyped {
+  .aboutPageIntroTyped {
     margin-top: 5%;
     width: 88vw;
     height: 200px;
   }
 
-  .aboutPageFirstSectArrow {
-    height: 3vh;
-    width: 50px;
+  .aboutPageRingCont {
+    height: 20vh;
+    width: 88vw; 
   }
 
-  .aboutPageSecondSectDiv {
-    height: 100vh;
-    width: 100vw;
+  .aboutPageNav {
+    font-size: smaller;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .aboutPageNavImgDiv {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    cursor: pointer;
+  }
+
+}
+
+@media (min-width: 767px) {
+  .aboutPageDivB {
+    height: 80vh;
+    width: 88vw;
     display: flex;
     justify-content: center;
     align-items: center;
+
+  }
+
+  .aboutPageIntroCont {
+    height: 30vh;
+    width: 38vw;
+  }
+
+  .aboutPageIntroSvg {
+    width: 340px;
+  }
+
+  .aboutPageIntroTyped {
+    margin-top: 5%;
+    width: 38vw;
   }
 
   .aboutPageRingCont {
-    height: 50vh;
-    width: 88vw;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
+    height: 30vh;
+    width: 35vw; 
   }
+  
+}
 
-
-  .aboutPageRevImage {
-    
-    width: 42vh;
-    filter: blur(1px) brightness(0.3);
+@media (min-width: 999px) {
+  .aboutPageIntroTyped {
+    font-size: larger;
   }
-
-  .aboutPageRingCont .aboutPageRingContTwo {
-    position: absolute;
-    height: 280px;
-    width: 200px;
-    top: 73%;
-    left: calc(50% - 100px);
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-    animation: autoRun 20s linear infinite;
-  }
-
-
-
-
-
-  @keyframes autoRun {
-    from{
-      transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
-    } to {
-      transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
-    }
-  }
-
-  .aboutPageRingCont .aboutPageRingContTwo .aboutPageRing {
-    position: absolute;
-    inset: 0 0 0 0;
-    transform: 
-      rotateY(calc((var(--position) - 1) * (360/ var(--quantity)) * 1deg))
-      translateZ(200px);
-    
-  }
-
-  .aboutPageRingContent {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-  }
-
-
 }

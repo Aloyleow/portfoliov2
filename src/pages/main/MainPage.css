@@ -1,6 +1,6 @@
 .mainPageSvgDiv {
   cursor: pointer;
-  transform: skewY(16deg) skewX(1deg);
+  transform: skewY(16deg);
   left: 20%;
   position: relative;
 }
@@ -19,6 +19,5 @@
   position: absolute;
   left: -20%;
   top: 45%;
-  
 }
 

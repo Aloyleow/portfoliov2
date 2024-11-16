@@ -6,12 +6,12 @@ i will consistently push my boundaries and acquire new knowledge.
 <span style="color: #3176AF;">The only constant in dev is change and being the change is my only constant</span>.
 ` 
 
-type TechSkills = {
+type Skills = {
   name: string
   icon: string
 }[]
 
-export const techSkills: TechSkills = [
+export const techSkills: Skills = [
   {
     name: "JavaScript",
     icon: "/aboutme/js.svg", 
@@ -66,25 +66,33 @@ export const techSkills: TechSkills = [
   }
 ]
 
-export const softSkills: Record<string, string[]> = {
-  finance: [
-    "Financial Planning",
-    "Financial Analysis",
-    "Financial Accounting",
-  ] ,
-  projectPlanning: [
-    "User Stories",
-    "UI/UX",
-    "MVP",
-    "Wireframes",
-    "Agile Methodology",
-    "Customer service",
-    "Goal settings",
-    "Roadmaps",
-  ],
-  communications: [
-    "Active Listener",
-    "Constructive Feedback Delivery",
-    "Adaptability"
-  ]
-}
+export const otherSkills: Skills = [
+  {
+    name: "VScode",
+    icon: "/aboutme/vsc.svg", 
+  },
+  {
+    name: "Figma",
+    icon: "/aboutme/figma.svg", 
+  },
+  {
+    name: "UI/UX",
+    icon: "/aboutme/uiuxblack.svg", 
+  },
+  {
+    name: "OpenAI",
+    icon: "/aboutme/chatgpt.svg", 
+  },
+  {
+    name: "Downloading C++",
+    icon: "/aboutme/cpp.svg", 
+  },
+  {
+    name: "Downloading JAVA",
+    icon: "/aboutme/java.svg", 
+  },
+  {
+    name: "Financial Advisory",
+    icon: "/aboutme/finance.svg", 
+  }, 
+]

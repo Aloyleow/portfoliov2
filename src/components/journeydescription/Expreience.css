@@ -1,0 +1,28 @@
+@media (min-width: 768px) {
+  .expDisplayDiv {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+  }
+
+  .expImgNameDiv {
+    display: flex; 
+    align-items: center;
+  }
+  .expImgDiv {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+
+  }
+  .expImg {
+    height: 100%;
+  }
+
+  .expNameDiv {
+    margin-left: 2%;
+  }
+}

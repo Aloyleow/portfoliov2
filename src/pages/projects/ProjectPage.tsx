@@ -1,8 +1,8 @@
 import './ProjectPage.css'
 import { projects } from '../../data/projects'
 
-import React, { useEffect, useState } from 'react'
-import { AnimatePresence, motion, Variants } from 'motion/react'
+import React, { useState } from 'react'
+import { motion, Variants } from 'motion/react'
 import ProjectDescription from '../../components/projdescription/ProjDescription';
 import ProjectScreen from '../../components/projscreen/ProjectScreen';
 import { useNavigate } from 'react-router-dom';

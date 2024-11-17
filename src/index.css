@@ -14,13 +14,13 @@
   place-items: center;
 }
 
-.arrImgRight {
-  width: 2vh;
+.navNextImg {
+  width: 5vh;
 }
 
-.arrImgLeft {
-  transform: rotate(180deg);
-  width: 2vh;
+.navNextImgDiv {
+  cursor: pointer;
+  height: 60px
 }
 
 .pageHeading svg path {
@@ -42,7 +42,26 @@
   }
 }
 
-@media (min-width: 767px) {
+@media (max-width: 767px) {
+  .navNextDiv {
+    font-size: smaller;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    text-align: end;
+  }
+  .arrImgRight {
+    width: 30px;
+  }
+  
+  .arrImgLeft {
+    transform: rotate(180deg);
+    width: 30px;
+  }
+}
+
+
+@media (min-width: 768px) {
   .navNextDiv {
     font-size: smaller;
     height: 30px;
@@ -50,13 +69,16 @@
     bottom: 25%;
     text-align: end;
   }
-  
-  .navNextImgDiv {
-    cursor: pointer;
-    height: 60px
+
+  .arrImgRight {
+    width: 2vh;
   }
   
-  .navNextImg {
-    width: 5vh;
+  .arrImgLeft {
+    transform: rotate(180deg);
+    width: 2vh;
   }
+  
+  
 }
+

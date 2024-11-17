@@ -67,21 +67,6 @@
     width: 88vw; 
   }
 
-  .aboutPageNav {
-    font-size: smaller;
-    height: 30px;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .aboutPageNavImgDiv {
-    margin-top: 10vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    cursor: pointer;
-  }
 
 }
 

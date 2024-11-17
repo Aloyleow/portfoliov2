@@ -94,6 +94,7 @@ function App() {
     timing: {
       duration: 5000, 
       iterations: Infinity, 
+      easing: "ease-in-out" 
     },
   });
   
@@ -104,7 +105,7 @@ function App() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<MainPage showMain={showMain} pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar}/>} />
         <Route path="/about" element={<AboutPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>} />
-        <Route path="/proj" element={<ProjectPage pagesAnimatVar={pagesAnimatVar}/>} />
+        <Route path="/proj" element={<ProjectPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>
       </Routes>
       </AnimatePresence>
     </>

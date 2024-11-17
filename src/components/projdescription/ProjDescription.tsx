@@ -14,32 +14,20 @@ type ProjectDescrip = {
   image: string
 };
 
-const projDesAnimatVar: Variants = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      duration: 1.2,
-      ease: "easeInOut",
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      duration: 0.1,
-    }
-  }
-};
-
 type ProjectDescriptionProps = {
   projectShown: ProjectDescrip
+  projDesAnimatVar: Variants
 }
 
-const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown}) => {
+const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown, projDesAnimatVar}) => {
   return (
-    <div className='projecDescriptionMainDiv'>
+    <motion.div 
+      className='projecDescriptionMainDiv'
+      variants={projDesAnimatVar}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
     <AnimatePresence>
       <div className='projectTechName'>
         <motion.div
@@ -166,7 +154,7 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown}) =
         </motion.div>
       </div >
     </AnimatePresence>
-  </div>
+  </motion.div>
   )
 }
 

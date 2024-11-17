@@ -1,6 +1,7 @@
 import './ProjectScreen.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion, Variants } from 'motion/react'
+import { useGlitch, GlitchHandle } from 'react-powerglitch';
 
 
 type ProjectDescrip = {
@@ -41,10 +42,12 @@ const screenAnimatVar: Variants = {
 type ProjectScreenProps = {
   projectShown: ProjectDescrip
   setprojectShown: React.Dispatch<React.SetStateAction<ProjectDescrip>>
-  handleArrowDirection: (direction: string) => void;
+  handleLeftArrow: () => void
+  handleRightArrow: () => void
+  projDesAnimatVar: Variants
 }
 
-const ProjectScreen: React.FC<ProjectScreenProps> = ({projectShown, handleArrowDirection}) =>{
+const ProjectScreen: React.FC<ProjectScreenProps> = ({projectShown, handleLeftArrow, handleRightArrow, projDesAnimatVar}) =>{
   const [screenAnimateDirection, setscreenAnimateDirection] = useState<ScreenAnimateDirection>({
     xDirIni: 0,
     xDirExit: 0
@@ -62,25 +65,55 @@ const ProjectScreen: React.FC<ProjectScreenProps> = ({projectShown, handleArrowD
       xDirExit: 0
     }) 
   }
+
+  const screenGlitch: GlitchHandle = useGlitch({
+    playMode:  "click",
+    createContainers: true,
+    hideOverflow: true,
+    glitchTimeSpan: {
+      start: 0,
+      end: 0.45,   
+    },
+    shake: {
+      velocity: 5
+    },
+    slice: {
+      count: 6, 
+      velocity: 16, 
+    },
+    timing: {
+      duration: 1000, 
+      iterations: 1,
+      easing: "ease-in-out" 
+    },
+  });
+
   return (
-    
-      <div className='projectScreenMainDiv'  >
+      <motion.div 
+        className='projectScreenMainDiv'
+        animate="animate"
+        variants={projDesAnimatVar}
+        initial="initial"
+        exit="exit"     
+      >
         <div className='projectScreenArrDiv'>
           <div 
             className='arrImgDiv' 
             onClick={() => {
-              handleArrowDirection("left")
+              handleLeftArrow()
               handleScreenAnimationLeft()
             }}
+            ref={screenGlitch.ref}
           >
             <img src='/arrow.svg' alt='arrowleft' className='arrImgLeft' />
           </div>
           <div 
             className='arrImgDiv' 
             onClick={() => {
-              handleArrowDirection("right")
+              handleRightArrow()
               handleScreenAnimationRight()
             }}
+            ref={screenGlitch.ref}
           >
             <img src='/arrow.svg' alt='arrowright' className='arrImgRight' />
           </div>
@@ -100,7 +133,7 @@ const ProjectScreen: React.FC<ProjectScreenProps> = ({projectShown, handleArrowD
           </div>
         </motion.div>
         </AnimatePresence>
-      </div>
+      </motion.div>
   )
 }
 

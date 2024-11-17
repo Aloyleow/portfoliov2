@@ -1,27 +1,59 @@
-.projectMainDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90vw;
-  height: 80vh;
- 
-}
-.projectDescripDiv {
-  width: 40vw;
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+@media (max-width: 767px) {
+  .projectMainDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 90vw;
+    
+  }
 
-.projectDescripfirstSect {
-  height: 10vh;
-}
+  .projectDescripfirstSect {
+    height: 5vh;
+    width: 90vw;
+  }
 
-.projectSvg {
-  width: 260px;
-}
+  .projectDescripDiv {
+    width: 90vw;
+    height: 50vh;
+    margin-top: 15vh;
+  }
 
+  .projectSvg {
+    width: 160px;
+  }
+
+  .projectScreenhpHoldingDiv {
+    width: 55vw;
+    height: 30vh;
+  }
+
+}
+@media (min-width: 768px) {
+  .projectDescripfirstSect {
+    height: 6vh;
+  }
+
+  .projectMainDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: 80vh;
+    position: relative;
+  }
+  
+  .projectDescripDiv {
+    width: 40vw;
+    height: 60vh;
+    position: absolute;
+    right: 50%;
+  }
+  
+  .projectSvg {
+    width: 260px;
+  }
+
+}
 
 
 

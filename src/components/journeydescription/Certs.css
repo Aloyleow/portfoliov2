@@ -1,0 +1,37 @@
+@media (min-width: 768px) {
+
+  .certDisplayDiv {
+    width: 60vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+  }
+
+  .certImgNameDiv {
+    display: flex;
+    align-items: center;
+    
+    height: 6vh;
+    width: 60vw;
+  }
+
+  .certImgDiv {
+    width: 130px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .certImg {
+    height: 100%;
+  }
+
+  .certSecTypeDiv {
+    
+    width: 48vw;
+    margin-left: 65px;
+  }
+
+}

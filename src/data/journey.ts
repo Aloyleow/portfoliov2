@@ -37,3 +37,32 @@ export const experience: Exp[] = [
   }
   
 ]
+
+type Cert = {
+  name: string;
+  image: string;
+  type: string;
+  sector: string;
+  
+}
+
+export const certs: Cert[] = [
+  {
+    name: "GENERAL ASSEMBLY SPACE ACADEMY",
+    image: "/journey/ga.png",
+    type: "Certification Of Completion",
+    sector: "Software Engineering Bootcamp | 420 hours",
+  },
+  {
+    name: "GOOGLE",
+    image:"/journey/google.svg",
+    type: "Professional Certificate",
+    sector: "Google Cybersecurity Specialization",
+  },
+  {
+    name: "Singapore University of Social Sciences (SUSS)",
+    image: "/journey/suss.png",
+    type: "Bachelor of Science - BS, Finance",
+    sector: "Finance",
+  }
+]

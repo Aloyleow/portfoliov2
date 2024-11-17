@@ -20,7 +20,7 @@ const Experience = () => {
                   <h5>{obj.name}</h5>
                 </motion.div>
               </motion.div>
-              <motion.div>
+              <motion.div className='expAboutDiv'>
                 <p>{obj.about}</p>
               </motion.div>
             </motion.div>

@@ -16,14 +16,14 @@ type ProjectDescrip = {
 
 type ProjectDescriptionProps = {
   projectShown: ProjectDescrip
-  projDesAnimatVar: Variants
+  fadeTransitionAnimatVar: Variants
 }
 
-const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown, projDesAnimatVar}) => {
+const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown, fadeTransitionAnimatVar}) => {
   return (
     <motion.div 
       className='projecDescriptionMainDiv'
-      variants={projDesAnimatVar}
+      variants={fadeTransitionAnimatVar}
       initial="initial"
       animate="animate"
       exit="exit"
@@ -32,7 +32,7 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown, pr
       <div className='projectTechName'>
         <motion.div
           key={`${projectShown.name}`}
-          variants={projDesAnimatVar}
+          variants={fadeTransitionAnimatVar}
           initial="initial"
           animate="animate"
           exit="exit"
@@ -49,7 +49,7 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown, pr
         <motion.div 
            className='projectTechStackMotion' 
            key={`${projectShown.name}`}
-           variants={projDesAnimatVar}
+           variants={fadeTransitionAnimatVar}
            initial="initial"
            animate="animate"
            exit="exit"
@@ -70,7 +70,7 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown, pr
         <motion.div 
            className='projectTechStackMotion' 
            key={`${projectShown.name}`}
-           variants={projDesAnimatVar}
+           variants={fadeTransitionAnimatVar}
            initial="initial"
            animate="animate"
            exit="exit"
@@ -90,7 +90,7 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown, pr
         <motion.div 
            className='projectTechStackMotion' 
            key={`${projectShown.name}`}
-           variants={projDesAnimatVar}
+           variants={fadeTransitionAnimatVar}
            initial="initial"
            animate="animate"
            exit="exit"
@@ -110,7 +110,7 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown, pr
         <motion.div 
            className='projectTechStackMotion' 
            key={`${projectShown.name}`}
-           variants={projDesAnimatVar}
+           variants={fadeTransitionAnimatVar}
            initial="initial"
            animate="animate"
            exit="exit"
@@ -130,7 +130,7 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown, pr
         <motion.div 
            className='projectTechStackMotion' 
            key={`${projectShown.name}`}
-           variants={projDesAnimatVar}
+           variants={fadeTransitionAnimatVar}
            initial="initial"
            animate="animate"
            exit="exit"
@@ -145,7 +145,7 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown, pr
       <div className='projectTechStackDes'>
         <motion.div 
            key={`${projectShown.name}`}
-           variants={projDesAnimatVar}
+           variants={fadeTransitionAnimatVar}
            initial="initial"
            animate="animate"
            exit="exit"

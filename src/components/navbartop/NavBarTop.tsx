@@ -25,7 +25,7 @@ type NavBarTopProps = {
   setShowMain: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const NavBarTop: React.FC<NavBarTopProps> = ({ handleConsoleView, setConsoleView, navGlitch, setShowMain}) => {
+const NavBarTop: React.FC<NavBarTopProps> = ({ handleConsoleView, navGlitch, setShowMain}) => {
   const location = useLocation()
   const atMainPage = location.pathname === "/"
   

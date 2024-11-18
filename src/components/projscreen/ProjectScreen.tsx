@@ -44,10 +44,10 @@ type ProjectScreenProps = {
   setprojectShown: React.Dispatch<React.SetStateAction<ProjectDescrip>>
   handleLeftArrow: () => void
   handleRightArrow: () => void
-  projDesAnimatVar: Variants
+  fadeTransitionAnimatVar: Variants
 }
 
-const ProjectScreen: React.FC<ProjectScreenProps> = ({projectShown, handleLeftArrow, handleRightArrow, projDesAnimatVar}) =>{
+const ProjectScreen: React.FC<ProjectScreenProps> = ({projectShown, handleLeftArrow, handleRightArrow, fadeTransitionAnimatVar}) =>{
   const [screenAnimateDirection, setscreenAnimateDirection] = useState<ScreenAnimateDirection>({
     xDirIni: 0,
     xDirExit: 0
@@ -92,7 +92,7 @@ const ProjectScreen: React.FC<ProjectScreenProps> = ({projectShown, handleLeftAr
       <motion.div 
         className='projectScreenMainDiv'
         animate="animate"
-        variants={projDesAnimatVar}
+        variants={fadeTransitionAnimatVar}
         initial="initial"
         exit="exit"     
       >

@@ -20,32 +20,14 @@ type ProjectDescrip = {
   image: string
 };
 
-const projDesAnimatVar: Variants = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      duration: 1.2,
-      ease: "easeInOut",
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      duration: 0.1,
-    }
-  }
-};
-
 type ProjectPageProps = {
   pagesAnimatVar: Variants
   arrowAnimateVar: Variants
   arrowGlitch: GlitchHandle
+  fadeTransitionAnimatVar: Variants
 };
 
-const ProjectPage: React.FC<ProjectPageProps> = ({pagesAnimatVar, arrowAnimateVar, arrowGlitch}) => {
+const ProjectPage: React.FC<ProjectPageProps> = ({pagesAnimatVar, arrowAnimateVar, arrowGlitch, fadeTransitionAnimatVar}) => {
   const navigate = useNavigate()
   const [projectNumber, setProjectNumber] = useState<number>(0)
   const [projectShown, setprojectShown] = useState<ProjectDescrip>({
@@ -117,7 +99,7 @@ const ProjectPage: React.FC<ProjectPageProps> = ({pagesAnimatVar, arrowAnimateVa
               <path d="M14.4 43.4H40V11.6H14.4V43.4ZM54.2 10.8V44.2L43.4 55H14.4V70H0.2V-4.76837e-06H43.4L54.2 10.8ZM76.8023 37.2H103.802V11.6H76.8023V37.2ZM118.002 10.8V37.7L110.402 45.3L122.502 70H106.802L97.1023 48.8H76.8023V70H62.6023V-4.76837e-06H107.202L118.002 10.8ZM127.832 59.2V10.8L138.632 -4.76837e-06H175.032L185.832 10.8V59.2L175.032 70H138.632L127.832 59.2ZM142.432 12.4V57.6H171.232V12.4H142.432ZM193.801 58.6V38H208.001V57.2H231.601V12.4H196.601V-4.76837e-06H245.801V58.6L234.401 70H205.201L193.801 58.6ZM255.962 70V-4.76837e-06H304.762V12H270.162V28.4H299.762V40H270.162V58H305.762V70H255.962ZM313.77 59.2V10.8L324.57 -4.76837e-06H360.37V12.9H328.37V57.1H361.37V70H324.57L313.77 59.2ZM385.441 70V12.4H366.141V-4.76837e-06H418.941V12.4H399.641V70H385.441ZM426.977 70V57.6H465.777V41.4L425.977 38.1V10.4L436.377 -4.76837e-06H478.977V12.4H440.177V27.6L479.977 30.9V59.6L469.577 70H426.977Z" fill="black" />
             </svg>
           </div>
-          {showProjects && <ProjectDescription projectShown={projectShown} projDesAnimatVar={projDesAnimatVar}/>}
+          {showProjects && <ProjectDescription projectShown={projectShown} fadeTransitionAnimatVar={fadeTransitionAnimatVar}/>}
         </div>
         <div className='projectScreenhpHoldingDiv'>
        {showProjects && <ProjectScreen 
@@ -125,7 +107,7 @@ const ProjectPage: React.FC<ProjectPageProps> = ({pagesAnimatVar, arrowAnimateVa
           setprojectShown={setprojectShown} 
           handleRightArrow={handleRightArrow}
           handleLeftArrow={handleLeftArrow}
-          projDesAnimatVar={projDesAnimatVar}
+          fadeTransitionAnimatVar={fadeTransitionAnimatVar}
         />}
         </div>
         <div className='projectNavHolder'>

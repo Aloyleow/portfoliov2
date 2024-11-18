@@ -1,6 +1,7 @@
 import './EmailScreen.css'
 import { AnimatePresence, motion, Variants } from 'motion/react'
 import React from 'react'
+import { useGlitch, GlitchHandle } from 'react-powerglitch';
 
 
 type FormikData = {
@@ -24,11 +25,33 @@ type EmailScreenProps = {
   emailValidated: EmailValidated
 }
 
+
 const EmailScreen: React.FC<EmailScreenProps> = ({ emailData, emailValidated }) => {
+
+  const emailScreenGlitch: GlitchHandle = useGlitch({
+    playMode: "always",
+    createContainers: true,
+    glitchTimeSpan: {
+      start: 0.1,
+      end: 0.2,   
+    },
+    shake: false,
+    slice: {
+      count: 12, 
+      velocity: 16, 
+    },
+    timing: {
+      duration: 13000, 
+      iterations: Infinity, 
+      
+    },
+  }); 
+
   return (
     <motion.div>
       <div className='emailScreenDiv'>
-        <div className='emailScreenInnerDiv'>
+        <div className='emailScreenInnerDiv' >
+          <div ref={emailScreenGlitch.ref}>
           <div>
             <p>To: Aloysious Leow</p>
           </div>
@@ -52,6 +75,7 @@ const EmailScreen: React.FC<EmailScreenProps> = ({ emailData, emailValidated }) 
             <p>
               You can contact me at {emailData.contactemail} {emailData.contact_no} 
             </p>}
+            </div>
           </div>
           <div className='emailScreenInnerDivRe'>
           <div>

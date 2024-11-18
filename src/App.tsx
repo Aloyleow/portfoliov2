@@ -56,6 +56,25 @@ const arrowAnimateVar: Variants = {
   },
 }
 
+const fadeTransitionAnimatVar: Variants = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1.2,
+      ease: "easeInOut",
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.1,
+    }
+  }
+};
+
 function App() {
   const [showMain, setShowMain] = useState(false)
 
@@ -107,9 +126,9 @@ function App() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<MainPage showMain={showMain} pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar}/>} />
         <Route path="/about" element={<AboutPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>} />
-        <Route path="/proj" element={<ProjectPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>
+        <Route path="/proj" element={<ProjectPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch} fadeTransitionAnimatVar={fadeTransitionAnimatVar}/>}/>
         <Route path="/journey" element={<JourneyPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>
-        <Route path="/contact" element={<ContactPage/>}/>
+        <Route path="/contact" element={<ContactPage pagesAnimatVar={pagesAnimatVar} navGlitch={navGlitch} fadeTransitionAnimatVar={fadeTransitionAnimatVar}/>}/>
       </Routes>
       </AnimatePresence>
     </>

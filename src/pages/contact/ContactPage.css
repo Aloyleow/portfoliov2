@@ -1,3 +1,85 @@
+.submittedDisplay {
+  color: #3176AF
+}
+
+.formInputControls {
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .contactPageMainDiv{
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: smaller; 
+    margin-top: 15vh;
+  }
+
+  .contactPageFormDiv {
+    height: 40vh;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+  }
+
+  .formInputHolder {    
+    height: 26vh;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .formControlMessage {
+    height: 24vh !important;
+    width: 90vw;
+    background-color: transparent;
+  }
+
+  .submitButtonHolder{   
+    height: 7vh;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .validateArrowDiv {
+    
+    width:  30vw;
+    height: 7vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .validateArrowImg{
+    width: 30px;
+  }
+
+  .validateArrowDivText {
+    font-size: small;
+  }
+
+  .contactPageLogoDiv {
+    height: 10vh;
+    width: 90vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+  }
+
+}
+
 @media (min-width: 768px) {
   .contactPageMainDiv{
     width: 90vw;
@@ -27,8 +109,9 @@
   }
 
   .formControlMessage {
-    height: 15vh !important;
+    height: 12vh !important;
     width: 400px;
+    background-color: transparent;
   }
 
   .submitButtonHolder{   
@@ -55,8 +138,8 @@
   }
 
   .contactPageLogoDiv {
-    height: 6vh;
-    width: 220px;
+    height: 4vh;
+    width: 260px;
     display: flex;
     justify-content: space-around;
     align-items: center;

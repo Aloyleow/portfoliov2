@@ -27,7 +27,7 @@ const logos: Logos = [
   {
     imageSrcLight: "/navbar/mailblack.svg",
     imageSrcDark: "",
-    link: "",
+    link: "/contact",
     alttxt: "gmailLogo",
   },
 ]
@@ -60,6 +60,13 @@ type NavBarLeftProps = {
 }
 
 const NavBarLeft: React.FC<NavBarLeftProps> = ({ consoleAnimateVar, setConsoleView, consoleView, navGlitch}) => {
+  const handleNavigate = (link: string) => {
+    if (link === "/contact") {
+      return "_self"
+    } else {
+      return "_blank"
+    }
+  }
 
   return (
     <div className="navBarLeftMainDiv">
@@ -83,7 +90,7 @@ const NavBarLeft: React.FC<NavBarLeftProps> = ({ consoleAnimateVar, setConsoleVi
             <div className="navBarLeftLogo">
               {logos.map((logos, index) => (
                 <div ref={navGlitch.ref}  key={index}>
-                  <a href={logos.link} target='_blank' rel="noopener noreferrer" onClick={() => setConsoleView(false)}>
+                  <a href={logos.link} target={handleNavigate(logos.link)} rel="noopener noreferrer" onClick={() => setConsoleView(false)}>
                     <img src={logos.imageSrcLight} alt={logos.alttxt} width="32px" />
                   </a>
                 </div>

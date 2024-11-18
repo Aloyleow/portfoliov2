@@ -8,6 +8,7 @@ import { useState } from "react";
 import AboutPage from "./pages/aboutme/AboutPage";
 import ProjectPage from "./pages/projects/ProjectPage";
 import JourneyPage from "./pages/journey/JourneyPage";
+import ContactPage from "./pages/contact/ContactPage";
 
 const pagesAnimatVar: Variants = {
   initial: {
@@ -108,6 +109,7 @@ function App() {
         <Route path="/about" element={<AboutPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>} />
         <Route path="/proj" element={<ProjectPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>
         <Route path="/journey" element={<JourneyPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>
+        <Route path="/contact" element={<ContactPage/>}/>
       </Routes>
       </AnimatePresence>
     </>

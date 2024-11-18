@@ -1,3 +1,45 @@
+@media (max-width: 767px){
+  .expDisplayDiv {
+    width: 90vw;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: smaller;   
+  }
+  
+  .expImgNameDiv {
+    display: flex; 
+    align-items: center;  
+  }
+
+  .expImgNameDiv h5{
+    font-size: medium;
+  }
+
+  .expImgDiv {
+    width: 70px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .expNameDiv {
+    margin-left: 2%;
+    width: 260px;
+  }
+
+  .expAboutDiv {
+    display: flex;
+    width: 90vw;
+    height: 80px;
+  }
+
+
+}
+
+
 @media (min-width: 768px) {
   .expDisplayDiv {
     width: 60vw;

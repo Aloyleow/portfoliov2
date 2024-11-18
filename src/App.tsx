@@ -107,7 +107,7 @@ function App() {
         <Route path="/" element={<MainPage showMain={showMain} pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar}/>} />
         <Route path="/about" element={<AboutPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>} />
         <Route path="/proj" element={<ProjectPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>
-        <Route path="/journey" element={<JourneyPage pagesAnimatVar={pagesAnimatVar}/>}/>
+        <Route path="/journey" element={<JourneyPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>
       </Routes>
       </AnimatePresence>
     </>

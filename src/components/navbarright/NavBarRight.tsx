@@ -22,11 +22,7 @@ const links: Links = [
   },
   {
     name: "Journey",
-    route: "/exp",
-  },
-  {
-    name: "Docs",
-    route: "/certs",
+    route: "/journey",
   },
   {
     name: "Contact",

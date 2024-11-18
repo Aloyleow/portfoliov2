@@ -2,15 +2,25 @@ import './Certs.css'
 import { certs } from '../../data/journey'
 
 import { AnimatePresence, motion, Variants } from 'motion/react'
+import React from 'react'
 
-const Certification = () => {
+type CertificationProps = {
+  desAnimatVar: Variants
+}
+
+const Certification: React.FC<CertificationProps> = ({desAnimatVar}) => {
   return (
     <motion.div>
       <AnimatePresence>
         <div className='certDisplayDiv'>
           {certs.map((obj, index) => (
             <motion.div
-            key={index}  
+            key={index}
+            variants={desAnimatVar}
+            animate="animate"
+            initial="initial"
+            exit="exit"
+            custom={{time: index, timeExit: index}}  
           >
             <motion.div className='certImgNameDiv'>
               <motion.div className='certImgDiv'>

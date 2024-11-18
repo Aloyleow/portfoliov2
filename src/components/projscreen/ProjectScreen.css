@@ -79,10 +79,13 @@
   
   .arrImgDiv {
     height: 30px;
-    width: 30px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
     position: relative;
     z-index: 3;
     cursor: pointer;
+    
   }
   
   

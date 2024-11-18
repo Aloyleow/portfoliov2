@@ -1,5 +1,5 @@
 import './ProjectScreen.css'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { AnimatePresence, motion, Variants } from 'motion/react'
 import { useGlitch, GlitchHandle } from 'react-powerglitch';
 

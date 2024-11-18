@@ -1,9 +1,38 @@
+@media (max-width: 767px) {
+  .journeyScreenContDiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20vh;
+    width: 300px;
+  }
+
+  .journeyScreenArrowDiv {
+    margin: 10%; 
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .journeyScreenImg {
+    width: 120px;
+  }
+
+}
+
+
+
 @media (min-width: 768px) {
   .journeyScreenContDiv {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: skewY(10deg);
+    transform: skewY(20deg);
+    height: 20vh;
+    width: 200px;
   }
 
   .journeyScreenArrowDiv {
@@ -12,20 +41,31 @@
     width: 40px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    cursor: pointer;
   }
 
+  .journeyScreenImg {
+    width: 90px;
+  }
 
-  /* .journeyScreenImgDiv::before {
+  .journeyScreenImgDiv {
+    position: relative;
+  }
+
+  .journeyScreenImgDiv::before {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 50%; 
+    width: 90%;
+    height: 90%; 
+    bottom: -100%;
+    left: -50%;
     background-image: var(--urlcontent);
     background-size: cover; 
     background-position: center; 
     transform: scaleY(-1) skewX(50deg);
     filter: blur(3px) brightness(0.7) opacity(0.1);
-  } */
+  }
 
 
 }

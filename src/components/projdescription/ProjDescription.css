@@ -52,15 +52,16 @@
 @media (min-width: 768px) {
 
   .projecDescriptionMainDiv {
-    height: 48vh;
+    height: 50vh;
     width: 40vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
   }
 
   .projectTechName {
-    height: 4vh;
+    height: 5vh;
     width: 40vw;
     display: flex;
     justify-content: center;

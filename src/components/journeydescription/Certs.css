@@ -1,3 +1,56 @@
+@media (max-width: 767px){
+
+  .certDisplayDiv {
+    width: 90vw;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+  }
+
+  .certImgNameDiv {
+    display: flex;
+    align-items: center;
+    height: 6vh;
+    width: 90vw;
+  }
+
+  .certImgDiv {
+    width: 100px;
+    height: 56px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .certImg {
+    height: 100%;
+  }
+
+  .certNameDiv {
+    width: 65vw;
+    height: 56px;
+    display: flex;
+    align-items: center;
+  }
+
+  .certNameDiv h5 {
+    font-size: medium;
+  }
+
+  .certSecTypeDiv {
+    width: 90vw;
+  }
+
+  .certSecTypeDiv div h5 {
+    font-size: medium;
+  }
+  
+
+
+}
+
+
 @media (min-width: 768px) {
 
   .certDisplayDiv {
@@ -28,8 +81,7 @@
     height: 100%;
   }
 
-  .certSecTypeDiv {
-    
+  .certSecTypeDiv { 
     width: 48vw;
     margin-left: 65px;
   }

@@ -29,7 +29,7 @@
   stroke-dashoffset: 1000;
   animation-delay: 1s;  
   stroke: black;
-  animation: headingAnimation 4s linear forwards; 
+  animation: headingAnimation 2.5s linear forwards; 
 }
 
 @keyframes headingAnimation {
@@ -64,19 +64,19 @@
 @media (min-width: 768px) {
   .navNextDiv {
     font-size: smaller;
-    height: 30px;
+    height: 70px;
     position: absolute;
     bottom: 25%;
     text-align: end;
   }
 
   .arrImgRight {
-    width: 2vh;
+    width: 38px;
   }
   
   .arrImgLeft {
     transform: rotate(180deg);
-    width: 2vh;
+    width: 38px;
   }
   
   

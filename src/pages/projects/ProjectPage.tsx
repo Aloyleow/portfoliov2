@@ -128,7 +128,8 @@ const ProjectPage: React.FC<ProjectPageProps> = ({pagesAnimatVar, arrowAnimateVa
           projDesAnimatVar={projDesAnimatVar}
         />}
         </div>
-       {showNav && <div className="navNextDiv"> 
+        <div className='projectNavHolder'>
+       {showNav && <div className="projectNavDiv"> 
             <div className="navNextImgDiv" onClick={() => navigate("/journey")}>
               <motion.div
                 variants={arrowAnimateVar}
@@ -144,6 +145,7 @@ const ProjectPage: React.FC<ProjectPageProps> = ({pagesAnimatVar, arrowAnimateVa
               </div>
             </div>
         </div>}
+        </div>
       </motion.div>
     </div>
   )

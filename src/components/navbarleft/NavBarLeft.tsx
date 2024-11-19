@@ -84,7 +84,13 @@ const NavBarLeft: React.FC<NavBarLeftProps> = ({ consoleAnimateVar, setConsoleVi
                   </a>
                 </div>
               ))}
-              <div onClick={() => navigate("/contact")} ref={navGlitch.ref} style={{ cursor: 'pointer' }}>
+              <div 
+                onClick={() => {
+                  navigate("/contact")
+                  setConsoleView(false)
+                }} 
+                ref={navGlitch.ref} 
+                style={{ cursor: 'pointer' }}>
                 <img src='/navbar/mailblack.svg' alt='homelogo' width="32px" />
               </div>
             </div>

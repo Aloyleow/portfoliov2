@@ -10,6 +10,7 @@ import ProjectPage from "./pages/projects/ProjectPage";
 import JourneyPage from "./pages/journey/JourneyPage";
 import ContactPage from "./pages/contact/ContactPage";
 import Landing from "./components/landing/Landing";
+import Background from "./components/background/Background";
 
 const pagesAnimatVar: Variants = {
   initial: {
@@ -120,7 +121,7 @@ function App() {
   return (
     <>
       <NavBar navGlitch={navGlitch} showMain={showMain}/>
-      
+      {/* <Background/> */}
       <AnimatePresence mode="wait">
       {!showMain && <Landing setShowMain={setShowMain} pagesAnimatVar={pagesAnimatVar}/>}
       {showMain && 

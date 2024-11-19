@@ -2,6 +2,7 @@ import './EmailScreen.css'
 import { motion } from 'motion/react'
 import React from 'react'
 import { useGlitch, GlitchHandle } from 'react-powerglitch';
+import { ReactTyped } from "react-typed";
 
 
 type FormikData = {
@@ -46,7 +47,7 @@ const EmailScreen: React.FC<EmailScreenProps> = ({ emailData, emailValidated }) 
       
     },
   }); 
-
+  console.log(emailValidated.showContactScreen)
   return (
     <motion.div>
       <div className='emailScreenDiv'>
@@ -64,16 +65,18 @@ const EmailScreen: React.FC<EmailScreenProps> = ({ emailData, emailValidated }) 
           <div className='emailMessageDiv'>
             <p>
               Hi, I am {emailData.user_name}
+              {/* <ReactTyped strings={[""]} typeSpeed={40} cursorChar="█"/> */}
             </p>
-            {emailValidated.showMessage &&
+            {emailValidated.messageScreen &&
             <p>
               {emailData.message}
-            </p>}
+            </p>} 
           </div>
           <div>
             {emailValidated.showContactScreen &&
             <p>
-              You can contact me at {emailData.contactemail} {emailData.contact_no} 
+              You can contact me at {emailData.contactemail} {emailData.contact_no}
+              {/* <ReactTyped strings={[""]} typeSpeed={40} cursorChar="█"/>  */}
             </p>}
             </div>
           </div>

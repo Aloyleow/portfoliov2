@@ -3,6 +3,7 @@ import "./NavBarLeft.css"
 import { AnimatePresence, motion, Variants } from "motion/react"
 import React from "react"
 import { GlitchHandle } from "react-powerglitch"
+import { useNavigate } from "react-router-dom"
 
 type Logos = {
   imageSrcLight: string
@@ -23,12 +24,6 @@ const logos: Logos = [
     imageSrcDark: "",
     link: "https://www.linkedin.com/in/aloyleow",
     alttxt: "linkinLogo",
-  },
-  {
-    imageSrcLight: "/navbar/mailblack.svg",
-    imageSrcDark: "",
-    link: "/contact",
-    alttxt: "gmailLogo",
   },
 ]
 
@@ -60,13 +55,7 @@ type NavBarLeftProps = {
 }
 
 const NavBarLeft: React.FC<NavBarLeftProps> = ({ consoleAnimateVar, setConsoleView, consoleView, navGlitch}) => {
-  const handleNavigate = (link: string) => {
-    if (link === "/contact") {
-      return "_self"
-    } else {
-      return "_blank"
-    }
-  }
+  const navigate = useNavigate()
 
   return (
     <div className="navBarLeftMainDiv">
@@ -89,12 +78,15 @@ const NavBarLeft: React.FC<NavBarLeftProps> = ({ consoleAnimateVar, setConsoleVi
             </div> */}
             <div className="navBarLeftLogo">
               {logos.map((logos, index) => (
-                <div ref={navGlitch.ref}  key={index}>
-                  <a href={logos.link} target={handleNavigate(logos.link)} rel="noopener noreferrer" onClick={() => setConsoleView(false)}>
+                <div ref={navGlitch.ref} key={index}>
+                  <a href={logos.link} target="_blank" rel="noopener noreferrer" onClick={() => setConsoleView(false)}>
                     <img src={logos.imageSrcLight} alt={logos.alttxt} width="32px" />
                   </a>
                 </div>
               ))}
+              <div onClick={() => navigate("/contact")} ref={navGlitch.ref} style={{ cursor: 'pointer' }}>
+                <img src='/navbar/mailblack.svg' alt='homelogo' width="32px" />
+              </div>
             </div>
           </motion.div>
         )}

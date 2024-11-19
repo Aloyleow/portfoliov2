@@ -321,7 +321,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
 
                     {notloading && emailValidated.showSubmit &&
                       <div className='submittedDisplay'>
-                        <button>
+                        <button type='submit'>
                           <h5>SUBMIT</h5>
                         </button>   
                       </div>

@@ -9,27 +9,25 @@ import AboutPage from "./pages/aboutme/AboutPage";
 import ProjectPage from "./pages/projects/ProjectPage";
 import JourneyPage from "./pages/journey/JourneyPage";
 import ContactPage from "./pages/contact/ContactPage";
+import Landing from "./components/landing/Landing";
 
 const pagesAnimatVar: Variants = {
   initial: {
     opacity: 0,
-    y: -100
+    
   },
   animate: {
     opacity: 1,
-    y: 0,
+    
     transition: {
-      type: "spring",
-      stiffness: 500, 
-      damping: 10,    
+      duration: 1.2,
       
     },
   },
   exit: {
     opacity: 0,
-    y: 100,
     transition: {
-      duration: 0.2,
+      duration: 0.3,
     }
   }
 };
@@ -121,15 +119,18 @@ function App() {
   
   return (
     <>
-      <NavBar navGlitch={navGlitch} setShowMain={setShowMain}/>
+      <NavBar navGlitch={navGlitch} showMain={showMain}/>
+      
       <AnimatePresence mode="wait">
+      {!showMain && <Landing setShowMain={setShowMain} pagesAnimatVar={pagesAnimatVar}/>}
+      {showMain && 
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<MainPage showMain={showMain} pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar}/>} />
         <Route path="/about" element={<AboutPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>} />
         <Route path="/proj" element={<ProjectPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch} fadeTransitionAnimatVar={fadeTransitionAnimatVar}/>}/>
         <Route path="/journey" element={<JourneyPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>
         <Route path="/contact" element={<ContactPage pagesAnimatVar={pagesAnimatVar} navGlitch={navGlitch} fadeTransitionAnimatVar={fadeTransitionAnimatVar}/>}/>
-      </Routes>
+      </Routes>}
       </AnimatePresence>
     </>
   )

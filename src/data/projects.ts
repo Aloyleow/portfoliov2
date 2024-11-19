@@ -14,22 +14,20 @@ type Project = {
 export const projects: Project = [
   {
     index: "A",
-    name: "Web-folio",
+    name: "Web-folio v2",
     techStack:
     {
-      FrontEnd: ["React", "TypeScript", "BootStrap"],
+      FrontEnd: ["React", "TypeScript"],
       BackEnd: ["N/A"],
       DataBase: ["N/A"],
       DevOps: ["Git", "Vercel"],
       APIs: ["N/A"],
     },
-    image: "/projects/portfolio.jpg",
+    image: "/projects/portfolio.png",
     about: `
-       My very own 
-       portfolio web application that I created while challenging myself to sharpen my knowledge on
-       TypeScript and bootStrap library.
+      Upgraded my portfolio with imporved user exprerince and interface. 
+      Mainly used CSS for styling, Formik and yup for form validations.
        `,
-
   },
   {
     index: "B",

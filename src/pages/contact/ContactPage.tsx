@@ -9,6 +9,7 @@ import * as yup from 'yup'
 import emailjs from '@emailjs/browser';
 import React, { useState } from 'react';
 import { GlitchHandle, useGlitch } from 'react-powerglitch';
+import { useNavigate } from 'react-router-dom';
 
 const logos: Logos = [
   {
@@ -23,12 +24,6 @@ const logos: Logos = [
     link: "https://www.linkedin.com/in/aloyleow",
     alttxt: "linkinLogo",
   },
-  {
-    imageSrcLight: "/contact/home.svg",
-    imageSrcDark: "",
-    link: "/",
-    alttxt: "homeLogo",
-  }
 ]
 
 type Logos = {
@@ -68,6 +63,7 @@ type ContactPageProps = {
 }
 
 const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fadeTransitionAnimatVar }) => {
+  const navigate = useNavigate()
   const [emailData, setEmailData] = useState<FormikData>({
     user_name: "",
     message: "",
@@ -86,13 +82,13 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
   const [submitted, setSubmitted] = useState<boolean>(false)
   const [showArrow, setShowArrow] = useState<boolean>(true)
 
-  const handleNavigate = (link: string) => {
-    if (link === "/") {
-      return "_self"
-    } else {
-      return "_blank"
-    }
-  }
+  // const handleNavigate = (link: string) => {
+  //   if (link === "/") {
+  //     return "_self"
+  //   } else {
+  //     return "_blank"
+  //   }
+  // }
 
   const handleEmailValidate = (validateForm: (values?: FormikData) => Promise<FormErrors>, values: FormikData) => {
     validateForm(values).then((errors) => {
@@ -324,9 +320,10 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
                     }
 
                     {notloading && emailValidated.showSubmit &&
-                      <button type='submit'>
-                        Submit
-                      </button>}
+                      <div className='submittedDisplay'>
+                        <h5>SUBMIT</h5>   
+                      </div>
+                  }
 
                     {showArrow && notloading && !emailValidated.showSubmit &&
                       <div>
@@ -347,11 +344,14 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
           <div className='contactPageLogoDiv'>
             {logos.map((logos, index) => (
               <div key={index} ref={navGlitch.ref}>
-                <a href={logos.link} target={handleNavigate(logos.link)} rel="noopener noreferrer">
+                <a href={logos.link} target="_blank" rel="noopener noreferrer">
                   <img src={logos.imageSrcLight} alt={logos.alttxt} width="32px" />
                 </a>
               </div>
             ))}
+            <div onClick={() => navigate("/")} ref={navGlitch.ref} style={{cursor: 'pointer'}}>
+              <img src='/contact/home.svg' alt='homelogo' width="32px"/>
+            </div>
           </div>
           <div>
             <p>aloyleow91@gmail.com</p>

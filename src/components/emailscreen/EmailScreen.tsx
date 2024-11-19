@@ -1,5 +1,5 @@
 import './EmailScreen.css'
-import { AnimatePresence, motion, Variants } from 'motion/react'
+import { motion } from 'motion/react'
 import React from 'react'
 import { useGlitch, GlitchHandle } from 'react-powerglitch';
 

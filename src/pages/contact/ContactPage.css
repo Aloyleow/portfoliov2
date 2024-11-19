@@ -1,6 +1,8 @@
 .submittedDisplay {
-  color: #3176AF
+  color: #3176AF;
+  cursor: pointer;
 }
+
 
 .formInputControls {
   background-color: transparent;
@@ -59,6 +61,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
 
   .validateArrowImg{
@@ -115,7 +118,6 @@
   }
 
   .submitButtonHolder{   
-    
     height: 7vh;
     width: 400px;
     display: flex;
@@ -131,6 +133,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
 
   .validateArrowImg{

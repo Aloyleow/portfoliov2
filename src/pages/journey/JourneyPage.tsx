@@ -1,6 +1,6 @@
 import './JourneyPage.css'
 
-import { AnimatePresence, motion, Variants } from 'motion/react'
+import { motion, Variants } from 'motion/react'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { GlitchHandle } from 'react-powerglitch'
@@ -12,19 +12,16 @@ import JourneyScreen from '../../components/journeyscreen/JourneyScreen'
 const desAnimatVar: Variants = {
   initial: {
     opacity: 0,
-    y: -10
   },
   animate: ({time}: {time: number}) => ({
     opacity: 1,
-    y: 0,
     transition: {
-      duration: 0.2,
-      delay: time * 0.3,
+      duration: 1.2,
+      delay: time * 0.5,
     },
   }),
   exit: ({timeExit}: {timeExit: number}) => ({
-    opacity: 1,
-    y: 20,
+    opacity: 0,
     transition: {
       delay: timeExit * 0.2, 
       duration: 2,
@@ -62,9 +59,11 @@ const JourneyPage: React.FC<JourneyPageProps> = ({pagesAnimatVar, arrowAnimateVa
             </svg>
           </div>
           <div className='expCertHolder'>
+            
            {showContent && (certExp ? 
             <Certification desAnimatVar={desAnimatVar}/> :
-            <Experience desAnimatVar={desAnimatVar}/>)}   
+            <Experience desAnimatVar={desAnimatVar}/>)} 
+ 
           </div>
         </div>
         <div className='journeyScreenHolder'>

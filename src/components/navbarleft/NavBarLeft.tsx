@@ -32,24 +32,24 @@ const logos: Logos = [
   },
 ]
 
-type Settings = {
-  imageSrcLight: string
-  imageSrcDark: string
-  alttxt: string
-}[]
+// type Settings = {
+//   imageSrcLight: string
+//   imageSrcDark: string
+//   alttxt: string
+// }[]
 
-const settings: Settings = [
-  {
-    imageSrcLight: "/navbar/moon.svg",
-    imageSrcDark: "",   
-    alttxt: "ColorThemeLogo",
-  },
-  {
-    imageSrcLight: "/navbar/globeblack.svg",
-    imageSrcDark: "", 
-    alttxt: "LanguageLogo",
-  },
-]
+// const settings: Settings = [
+//   {
+//     imageSrcLight: "/navbar/moon.svg",
+//     imageSrcDark: "",   
+//     alttxt: "ColorThemeLogo",
+//   },
+//   {
+//     imageSrcLight: "/navbar/globeblack.svg",
+//     imageSrcDark: "", 
+//     alttxt: "LanguageLogo",
+//   },
+// ]
 
 
 type NavBarLeftProps = {
@@ -80,13 +80,13 @@ const NavBarLeft: React.FC<NavBarLeftProps> = ({ consoleAnimateVar, setConsoleVi
             exit="exit"
             custom={-50}
           >
-            <div className="navBarLeftSet">
+            {/* <div className="navBarLeftSet">
               {settings.map((settings, index) => (
                 <div ref={navGlitch.ref}  key={index} onClick={() => setConsoleView(false)}>
                   <img src={settings.imageSrcLight} alt={settings.alttxt} width="32px"/>
                 </div>
               ))}
-            </div>
+            </div> */}
             <div className="navBarLeftLogo">
               {logos.map((logos, index) => (
                 <div ref={navGlitch.ref}  key={index}>

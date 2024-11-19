@@ -1,0 +1,50 @@
+.landingMainDiv {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.landingInnerDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landingImg {
+  width: 20vh;
+}
+
+.landingSvg {
+  width: 30vh;
+}
+
+.landingSvg path{
+  fill: transparent;
+  stroke: black;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: textAnimation 5s linear, textAnimationFinish 5s linear forwards;  
+}
+
+@keyframes textAnimation {
+  40% {
+    fill: transparent;
+  }
+  100% {
+    fill:#333333;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes textAnimationFinish {
+  40% {
+    fill:#333333;
+  }
+  100% {
+    fill: transparent;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+}

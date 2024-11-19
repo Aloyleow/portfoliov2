@@ -10,7 +10,7 @@ type MainPageProps = {
   arrowAnimateVar: Variants
 }
 
-const MainPage: React.FC<MainPageProps> = ({showMain, pagesAnimatVar, arrowAnimateVar}) => {
+const MainPage: React.FC<MainPageProps> = ({ pagesAnimatVar, arrowAnimateVar}) => {
   const navigate = useNavigate()
   
   const mainGlitch: GlitchHandle = useGlitch({
@@ -52,11 +52,12 @@ const MainPage: React.FC<MainPageProps> = ({showMain, pagesAnimatVar, arrowAnima
   
   return (
     <div className="pagesLayoutDiv">
-        {showMain ? (<motion.div 
+        <motion.div 
             variants={pagesAnimatVar}
             initial="initial"
             animate="animate"
             exit="exit"
+            
           >
           <div className="mainPageSvgDiv" onClick={() => navigate("/about")}>
             <div ref={mainGlitch.ref}>
@@ -85,7 +86,7 @@ const MainPage: React.FC<MainPageProps> = ({showMain, pagesAnimatVar, arrowAnima
               <img src="/arrow.svg" alt="rightarrow" style={{width: "3vh"}}/>
             </motion.div>
           </div>
-        </motion.div>) : null}
+        </motion.div>
     </div>
   )
 }

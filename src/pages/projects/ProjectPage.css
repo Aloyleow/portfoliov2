@@ -42,6 +42,7 @@
 @media (min-width: 768px) {
   .projectDescripfirstSect {
     height: 6vh;
+    width: 40vw;
   }
 
   .projectMainDiv {

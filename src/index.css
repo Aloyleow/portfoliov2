@@ -26,8 +26,7 @@
 .pageHeading svg path {
   fill: transparent;
   stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation-delay: 1s;  
+  stroke-dashoffset: 1000; 
   stroke: black;
   animation: headingAnimation 2.5s linear forwards; 
 }

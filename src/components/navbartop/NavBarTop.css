@@ -21,42 +21,4 @@
   width: 100px;
 }
 
-.navBarTopSvgDiv {
-  width: 280px;
-  height: 58px
-}
 
-.navBarTopSvgDiv svg{
-  width: 280px;
-}
-
-.navBarTopSvgDiv svg path{
-  fill: transparent;
-  stroke: black;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: textAnimation 4.5s linear, textAnimationFinish 4.5s linear forwards; 
-  animation-delay: 1s;
-  
-}
-
-@keyframes textAnimation {
-  40% {
-    fill: transparent;
-  }
-  100% {
-    fill:#333333;
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes textAnimationFinish {
-  40% {
-    fill:#333333;
-  }
-  100% {
-    fill: transparent;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-  }
-}

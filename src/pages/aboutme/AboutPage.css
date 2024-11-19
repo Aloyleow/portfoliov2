@@ -13,7 +13,7 @@
   stroke-dashoffset: 1000;
   animation-delay: 1s;  
   stroke: black;
-  animation: nameBlackAnimation 4.5s linear forwards; 
+  animation: nameBlackAnimation 2.5s linear forwards; 
 }
 
 .aboutPageIntroSvg .aboutPageSvgPathBlue {
@@ -22,7 +22,7 @@
   stroke-dashoffset: 1000;
   animation-delay: 1s;  
   stroke: #3176AF;
-  animation: nameBlueAnimation 4.5s linear forwards;
+  animation: nameBlueAnimation 2.5s linear forwards;
 }
 
 
@@ -53,7 +53,7 @@
   }
 
   .aboutPageIntroSvg {
-    width: 38vh;
+    width: 290px;
   }
 
   .aboutPageIntroTyped {

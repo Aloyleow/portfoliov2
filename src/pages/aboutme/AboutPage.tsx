@@ -48,9 +48,9 @@ const AboutPage: React.FC<AboutPageProps> = ({ pagesAnimatVar, arrowAnimateVar, 
         <div className="aboutPageRingCont">
           {showSkills && <Ring setShowNavProject={setShowNavProject} />}
         </div>
-        <div className="navNextDiv">
+        <div className="aboutNavNextDiv">
           {showNavProject &&
-            <div className="navNextImgDiv" onClick={() => navigate("/proj")}>
+            <div className="aboutNavNextImgDiv" onClick={() => navigate("/proj")}>
               <motion.div
                 variants={arrowAnimateVar}
                 initial="initial"

@@ -68,6 +68,15 @@
   }
 
 
+  .aboutNavNextDiv {
+    display: flex;
+    justify-content: center;
+    text-align: end;
+    height: 50px;
+    width: 90vw;
+  }
+
+
 }
 
 @media (min-width: 767px) {
@@ -98,6 +107,16 @@
     height: 30vh;
     width: 35vw; 
   }
+
+  .aboutNavNextDiv {
+    font-size: smaller;
+    height: 70px;
+    bottom: 20%;
+    left: 45%;
+    position: absolute;  
+    text-align: end;
+  }
+
   
 }
 

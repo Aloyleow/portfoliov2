@@ -14,7 +14,7 @@ export const experience: Exp[] = [
     alt: "figurelablogo",
     about: `
     From Nov 2024 to Present.
-    Incharge of designing and developing the company's web app with Auth and CMS function 
+    Incharge of designing the frontend and developing the company's web app with Auth and CMS function at the backend.
     `
   },
   {

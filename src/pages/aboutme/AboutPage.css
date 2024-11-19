@@ -115,6 +115,7 @@
     left: 45%;
     position: absolute;  
     text-align: end;
+    cursor: pointer;
   }
 
   

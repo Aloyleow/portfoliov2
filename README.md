@@ -1,5 +1,5 @@
 # Portfolio V2.0.0
-- Designed to be responsived
+- Designed to be responsive
 ## Future updates
 - Darkmode
 - Interface Language switch

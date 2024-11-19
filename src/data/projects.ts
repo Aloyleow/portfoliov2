@@ -25,8 +25,9 @@ export const projects: Project = [
     },
     image: "/projects/portfolio.png",
     about: `
-      Upgraded my portfolio with imporved user exprerince and interface. 
-      Mainly used CSS for styling, Formik and yup for form validations.
+      Upgraded my portfolio with improved user experience and interface, 
+      applied efficient React state management and CSS for styling with responsive designs. 
+      Implemented form validation using Formik and Yup.
        `,
   },
   {

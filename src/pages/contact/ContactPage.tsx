@@ -40,6 +40,9 @@ type EmailValidated = {
   showSubmit: boolean
   messageScreen: boolean;
   showContactScreen: boolean;
+  typedName: boolean;
+  typedContact: boolean;
+  typedMessage: boolean;
 }
 
 type FormikData = {
@@ -77,6 +80,9 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
     showSubmit: false,
     messageScreen: false,
     showContactScreen: false,
+    typedName: true,
+    typedMessage: false,
+    typedContact: false,
   })
   const [notloading, setNotLoading] = useState<boolean>(true)
   const [submitted, setSubmitted] = useState<boolean>(false)
@@ -98,6 +104,8 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
           showMessage: true,
           showName: false,
           messageScreen: true,
+          typedName: false,
+          typedMessage: true,
         }));
       }
 
@@ -107,6 +115,8 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
           showMessage: false,
           showContact: true,
           showContactScreen: true,
+          typedMessage: false,
+          typedContact: true,
         }));
       }
 
@@ -114,6 +124,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
         setEmailValidated((prev) => ({
           ...prev,
           showSubmit: true,
+          typedContact: false,
         }));
       }
     });

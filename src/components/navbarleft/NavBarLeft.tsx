@@ -10,41 +10,44 @@ type Logos = {
   imageSrcDark: string
   link: string
   alttxt: string
-}[]
+}[];
 
 const logos: Logos = [
   {
     imageSrcLight: "/navbar/gitblack.svg",
-    imageSrcDark: "",
+    imageSrcDark: "/navbar/gitwhite.svg",
     link: "https://github.com/Aloyleow/",
     alttxt: "githubLogo",
   },
   {
     imageSrcLight: "/navbar/linkblack.svg",
-    imageSrcDark: "",
+    imageSrcDark: "/navbar/linkwhite.svg",
     link: "https://www.linkedin.com/in/aloyleow",
     alttxt: "linkinLogo",
   },
-]
+];
 
-// type Settings = {
-//   imageSrcLight: string
-//   imageSrcDark: string
-//   alttxt: string
-// }[]
+type Settings = {
+  imageSrcLight: string;
+  imageSrcDark: string;
+  alttxt: string;
+  name: string;
+}[];
 
-// const settings: Settings = [
-//   {
-//     imageSrcLight: "/navbar/moon.svg",
-//     imageSrcDark: "",   
-//     alttxt: "ColorThemeLogo",
-//   },
-//   {
-//     imageSrcLight: "/navbar/globeblack.svg",
-//     imageSrcDark: "", 
-//     alttxt: "LanguageLogo",
-//   },
-// ]
+const settings: Settings = [
+  {
+    name: "color",
+    imageSrcLight: "/navbar/moon.svg",
+    imageSrcDark: "/navbar/sun.svg",   
+    alttxt: "ColorThemeLogo",
+  },
+  {
+    name: "language",
+    imageSrcLight: "/navbar/globeblack.svg",
+    imageSrcDark: "/navbar/globewhite.svg", 
+    alttxt: "LanguageLogo",
+  },
+];
 
 
 type NavBarLeftProps = {
@@ -52,10 +55,20 @@ type NavBarLeftProps = {
   consoleView: boolean
   consoleAnimateVar: Variants
   navGlitch: GlitchHandle
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+  darkMode: boolean;
 }
 
-const NavBarLeft: React.FC<NavBarLeftProps> = ({ consoleAnimateVar, setConsoleView, consoleView, navGlitch}) => {
-  const navigate = useNavigate()
+const NavBarLeft: React.FC<NavBarLeftProps> = ({ consoleAnimateVar, setConsoleView, consoleView, navGlitch, darkMode, setDarkMode}) => {
+  const navigate = useNavigate();
+  
+  const handleSettings = (name: string) => {
+    if (name === "color") {
+      setDarkMode((prev) => !prev)
+    } else if (name === "language"){
+      return null
+    }
+  }
 
   return (
     <div className="navBarLeftMainDiv">
@@ -69,18 +82,24 @@ const NavBarLeft: React.FC<NavBarLeftProps> = ({ consoleAnimateVar, setConsoleVi
             exit="exit"
             custom={-50}
           >
-            {/* <div className="navBarLeftSet">
+            <div className="navBarLeftSet">
               {settings.map((settings, index) => (
-                <div ref={navGlitch.ref}  key={index} onClick={() => setConsoleView(false)}>
-                  <img src={settings.imageSrcLight} alt={settings.alttxt} width="32px"/>
+                <div 
+                  ref={navGlitch.ref}  
+                  key={index} 
+                  onClick={() => {
+                    setConsoleView(false)
+                    handleSettings(settings.name)
+                  }}>
+                  <img src={darkMode ? settings.imageSrcDark : settings.imageSrcLight} alt={settings.alttxt} width="32px"/>
                 </div>
               ))}
-            </div> */}
+            </div>
             <div className="navBarLeftLogo">
               {logos.map((logos, index) => (
                 <div ref={navGlitch.ref} key={index}>
                   <a href={logos.link} target="_blank" rel="noopener noreferrer" onClick={() => setConsoleView(false)}>
-                    <img src={logos.imageSrcLight} alt={logos.alttxt} width="32px" />
+                    <img src={darkMode ? logos.imageSrcDark : logos.imageSrcLight} alt={logos.alttxt} width="32px" />
                   </a>
                 </div>
               ))}
@@ -91,7 +110,7 @@ const NavBarLeft: React.FC<NavBarLeftProps> = ({ consoleAnimateVar, setConsoleVi
                 }} 
                 ref={navGlitch.ref} 
                 style={{ cursor: 'pointer' }}>
-                <img src='/navbar/mailblack.svg' alt='homelogo' width="32px" />
+                <img src={darkMode ? '/navbar/mailwhite.svg' : '/navbar/mailblack.svg'} alt='homelogo' width="32px" />
               </div>
             </div>
           </motion.div>

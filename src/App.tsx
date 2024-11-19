@@ -4,7 +4,7 @@ import { useGlitch, GlitchHandle } from 'react-powerglitch';
 
 import MainPage from "./pages/main/MainPage"
 import NavBar from "./pages/navbar/NavBar"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AboutPage from "./pages/aboutme/AboutPage";
 import ProjectPage from "./pages/projects/ProjectPage";
 import JourneyPage from "./pages/journey/JourneyPage";
@@ -76,9 +76,16 @@ const fadeTransitionAnimatVar: Variants = {
 
 function App() {
   const [showMain, setShowMain] = useState(false)
+  const [darkMode, setDarkMode] = useState(false)
 
   const location = useLocation()
 
+  // useEffect(() => {
+  //   const darkModeSettings = window.matchMedia('(prefers-color-scheme: dark)')
+
+  //   setDarkMode(darkModeSettings.matches)
+  // },[])
+  console.log(darkMode)
   const navGlitch: GlitchHandle = useGlitch({
     playMode: "click",
     createContainers: true,
@@ -120,13 +127,13 @@ function App() {
   
   return (
     <>
-      <NavBar navGlitch={navGlitch} showMain={showMain}/>
-      {/* <Background/> */}
+      <NavBar navGlitch={navGlitch} showMain={showMain} setDarkMode={setDarkMode} darkMode={darkMode}/>
+      <Background darkMode={darkMode}/>
       <AnimatePresence mode="wait">
       {!showMain && <Landing setShowMain={setShowMain} pagesAnimatVar={pagesAnimatVar}/>}
       {showMain && 
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<MainPage showMain={showMain} pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar}/>} />
+        <Route path="/" element={<MainPage darkMode={darkMode} showMain={showMain} pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar}/>} />
         <Route path="/about" element={<AboutPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>} />
         <Route path="/proj" element={<ProjectPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch} fadeTransitionAnimatVar={fadeTransitionAnimatVar}/>}/>
         <Route path="/journey" element={<JourneyPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>

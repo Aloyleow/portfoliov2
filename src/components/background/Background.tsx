@@ -1,9 +1,13 @@
+import React from 'react';
 import './Background.css'
 import { useGlitch, GlitchHandle } from 'react-powerglitch';
 
 
+type BackgroundProps = {
+  darkMode: boolean;
+};
 
-const Background = () => {
+const Background: React.FC<BackgroundProps> = ({darkMode}) => {
 
   const sparkGlitch: GlitchHandle = useGlitch({
     playMode: "always",
@@ -26,8 +30,8 @@ const Background = () => {
   });
 
   return (
-    <div className="backgroundMainDiv">
-      <div className="sparks" style={{left: "50%", top: "50%"}}>
+    <div className="backgroundMainDiv" style={{backgroundColor: darkMode ? "black" : "white"}}>
+      {/* <div className="sparks" style={{left: "50%", top: "50%"}}>
         <div ref={sparkGlitch.ref} className='sparkGlitch'>
 
         </div>
@@ -66,7 +70,7 @@ const Background = () => {
         <div ref={sparkGlitch.ref} className='sparkGlitch'>
 
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

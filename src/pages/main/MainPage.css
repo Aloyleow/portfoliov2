@@ -1,11 +1,14 @@
-.mainPageSvgDiv {
+.mainPageMainDiv {
   cursor: pointer;
   transform: skewY(16deg);
   left: 20%;
   position: relative;
+  /* background-color: aqua; */
 }
 
-.mainPageSvgDiv .mainPageSvgRe {
+
+
+/* .mainPageSvgDiv .mainPageSvgRe {
   position: absolute;
   top: 150%;
   left: -45%;
@@ -13,7 +16,7 @@
   transform: scaleY(-1) skewX(50deg);
   filter: blur(3px) brightness(0.7); 
   opacity: 0.3;
-}
+} */
 
 .mainPageArrowDiv {
   position: absolute;

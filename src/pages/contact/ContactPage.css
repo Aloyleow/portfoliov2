@@ -3,6 +3,10 @@
   cursor: pointer;
 }
 
+.submittedDisplay button {
+  all: unset;
+}
+
 
 .formInputControls {
   background-color: transparent;

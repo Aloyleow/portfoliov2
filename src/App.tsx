@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom"
+import { Routes, Route, useLocation, Navigate } from "react-router-dom"
 import { AnimatePresence, Variants } from "motion/react";
 import { useGlitch, GlitchHandle } from 'react-powerglitch';
 
@@ -130,6 +130,7 @@ function App() {
         <Route path="/proj" element={<ProjectPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch} fadeTransitionAnimatVar={fadeTransitionAnimatVar}/>}/>
         <Route path="/journey" element={<JourneyPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>
         <Route path="/contact" element={<ContactPage pagesAnimatVar={pagesAnimatVar} navGlitch={navGlitch} fadeTransitionAnimatVar={fadeTransitionAnimatVar}/>}/>
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>}
       </AnimatePresence>
     </>

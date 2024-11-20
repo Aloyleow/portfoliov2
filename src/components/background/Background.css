@@ -11,12 +11,14 @@
 
 .sparks {
   position: fixed;
-  width: 0.8vw;
-  height: 0.8vw;
+  width: 10px;
+  height: 10px;
   opacity: 0.6; 
   animation: ease 10s alternate infinite; 
+  transition: transform 2 ease;
   pointer-events: none;
 }
+
 
 /* .sparks::before,
 .sparks::after {
@@ -191,8 +193,8 @@
 }
 
 .sparkGlitch {
-  height: 0.8vw;
-  width: 0.8vw;
+  height: 10px;
+  width: 10px;
   border-radius: 50%;
   background-color: #3176AF;
 }

@@ -55,7 +55,13 @@ const NavBar: React.FC<NavBarProps> = ({ navGlitch, showMain, setDarkMode, darkM
     
     <>
       {showMain && <NavBarTop handleConsoleView={handleConsoleView} setConsoleView={setConsoleView} navGlitch={navGlitch}/>}
-      <NavBarRight consoleAnimateVar={consoleAnimateVar} setConsoleView={setConsoleView} consoleView={consoleView} navGlitch={navGlitch}/>
+      <NavBarRight 
+        consoleAnimateVar={consoleAnimateVar} 
+        setConsoleView={setConsoleView} 
+        consoleView={consoleView} 
+        navGlitch={navGlitch}
+        darkMode={darkMode}
+      />
       <NavBarLeft 
         consoleAnimateVar={consoleAnimateVar} 
         setConsoleView={setConsoleView} 

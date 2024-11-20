@@ -8,7 +8,7 @@ import { GlitchHandle } from "react-powerglitch"
 type Links = {
   name: string
   route: string
-}[]
+}[];
 
 
 const links: Links = [
@@ -28,19 +28,20 @@ const links: Links = [
     name: "Contact",
     route: "/contact",
   }
-]
+];
 
 
 type NavBarRightProps = {
   setConsoleView: React.Dispatch<React.SetStateAction<boolean>>;
-  consoleView: boolean
-  consoleAnimateVar: Variants
-  navGlitch: GlitchHandle
-}
+  consoleView: boolean;
+  consoleAnimateVar: Variants;
+  navGlitch: GlitchHandle;
+  darkMode: boolean;
+};
 
 
-const NavBarRight: React.FC<NavBarRightProps> = ({ consoleAnimateVar, setConsoleView, consoleView, navGlitch}) => {
-  const navigate = useNavigate()
+const NavBarRight: React.FC<NavBarRightProps> = ({ consoleAnimateVar, setConsoleView, consoleView, navGlitch, darkMode}) => {
+  const navigate = useNavigate();
 
   return (
     <div className="navBarRightMainDiv">
@@ -62,7 +63,7 @@ const NavBarRight: React.FC<NavBarRightProps> = ({ consoleAnimateVar, setConsole
                 }}
                 ref={navGlitch.ref}
               >
-                <h3>{item.name}</h3>
+                <h3 style={{color: darkMode ? "white" : "black"}}>{item.name}</h3>
               </div>
             ))}
           </motion.div>

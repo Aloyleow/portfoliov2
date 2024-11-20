@@ -20,7 +20,7 @@ const ringItemAnimateVar: Variants = {
   exit: ({ delay }: { delay: number }) => ({
     opacity: 0,
     transition: {
-      delay:0.12 * delay,
+      delay:0.06 * delay,
       duration: 0.8,
     }
   })

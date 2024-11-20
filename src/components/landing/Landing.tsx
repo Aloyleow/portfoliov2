@@ -1,5 +1,6 @@
 import './Landing.css'
 
+import { useGlitch, GlitchHandle } from 'react-powerglitch';
 import { motion, Variants } from 'motion/react'
 import React from 'react'
 
@@ -11,6 +12,26 @@ type LandingProps = {
 
 
 const Landing: React.FC<LandingProps> = ({ setShowMain, pagesAnimatVar, darkMode }) => {
+
+  const landingGlitch: GlitchHandle = useGlitch({
+    playMode: "always",
+    createContainers: true,
+    hideOverflow: true,
+    glitchTimeSpan: {
+      start: 0.2,
+      end: 0.4,   
+    },
+    shake: false,
+    slice: {
+      count: 6, 
+      velocity: 16, 
+    },
+    timing: {
+      duration: 2000, 
+      iterations: 2, 
+    },
+  });
+
   return (
 
     <motion.div
@@ -21,7 +42,7 @@ const Landing: React.FC<LandingProps> = ({ setShowMain, pagesAnimatVar, darkMode
       animate="animate"
       exit="exit"
     >
-      <div className="landingInnerDiv">
+      <div className="landingInnerDiv" ref={landingGlitch.ref}>
         <div className="landingImgDiv">
           <img src="/myLogo.svg" alt="myLogo" className="landingImg" />
         </div>

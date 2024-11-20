@@ -4,7 +4,7 @@ import { useGlitch, GlitchHandle } from 'react-powerglitch';
 
 import MainPage from "./pages/main/MainPage"
 import NavBar from "./pages/navbar/NavBar"
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import AboutPage from "./pages/aboutme/AboutPage";
 import ProjectPage from "./pages/projects/ProjectPage";
 import JourneyPage from "./pages/journey/JourneyPage";

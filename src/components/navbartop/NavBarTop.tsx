@@ -21,7 +21,7 @@ type NavBarTopProps = {
   handleConsoleView: () => void;
   setConsoleView: React.Dispatch<React.SetStateAction<boolean>>;
   navGlitch: GlitchHandle;
-}
+};
 
 const NavBarTop: React.FC<NavBarTopProps> = ({ handleConsoleView, navGlitch}) => {
   

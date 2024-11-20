@@ -27,9 +27,10 @@ const ringItemAnimateVar: Variants = {
 }
 type RingProps = {
   setShowNavProject: React.Dispatch<React.SetStateAction<boolean>>
+  darkMode: boolean
 }
 
-const Ring: React.FC<RingProps> = ({setShowNavProject}) => {
+const Ring: React.FC<RingProps> = ({setShowNavProject, darkMode}) => {
   const [ringType, setRingType] = useState<boolean>(true)
 
   const handleRingTypeOnClick = (): void => setRingType((prev: boolean) => !prev)
@@ -78,7 +79,7 @@ const Ring: React.FC<RingProps> = ({setShowNavProject}) => {
               >
                 <div ref={ringGlitch.ref}>
                   <img src={obj.icon} width="20px" height="20px" alt={`${obj.name} icon`} />
-                  <p>{obj.name}</p>
+                  <p style={{color: darkMode ? "white" : "black"}}>{obj.name}</p>
                 </div>
               </motion.div>
             </div>
@@ -100,7 +101,7 @@ const Ring: React.FC<RingProps> = ({setShowNavProject}) => {
                 >
                   <div ref={ringGlitch.ref}>
                     <img src={obj.icon} width="20px" height="20px" alt={`${obj.name} icon`} />
-                    <p>{obj.name}</p>
+                    <p style={{color: darkMode ? "white" : "black"}}>{obj.name}</p>
                   </div>
                 </motion.div>
               </div>

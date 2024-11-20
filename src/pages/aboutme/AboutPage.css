@@ -7,12 +7,12 @@
   align-items: center;
 }
 
-.aboutPageIntroSvg .aboutPageSvgPathBlack {
+.aboutPageIntroSvg .aboutPageSvgPath {
   fill: transparent;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   animation-delay: 1s;  
-  stroke: black;
+  stroke: var(--fillColor);
   animation: nameBlackAnimation 2.5s linear forwards; 
 }
 
@@ -41,7 +41,7 @@
     fill: transparent;
   }
   100% {
-    fill:#333333;
+    fill:var(--fillColor);
     stroke-dashoffset: 0;
   }
 }

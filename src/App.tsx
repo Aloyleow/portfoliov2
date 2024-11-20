@@ -124,6 +124,26 @@ function App() {
       easing: "ease-in-out" 
     },
   });
+
+  const arrowGlitchDark: GlitchHandle = useGlitch({
+    playMode: "always",
+    createContainers: true,
+    hideOverflow: true,
+    glitchTimeSpan: {
+      start: 0.0,
+      end: 0.3,   
+    },
+    shake: false,
+    slice: {
+      count: 12, 
+      velocity: 16, 
+    },
+    timing: {
+      duration: 5000, 
+      iterations: Infinity, 
+      easing: "ease-in-out" 
+    },
+  });
   
   return (
     <>
@@ -133,8 +153,27 @@ function App() {
       {!showMain && <Landing darkMode={darkMode} setShowMain={setShowMain} pagesAnimatVar={pagesAnimatVar}/>}
       {showMain && 
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<MainPage darkMode={darkMode} showMain={showMain} pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar}/>} />
-        <Route path="/about" element={<AboutPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>} />
+        <Route 
+          path="/" 
+          element={
+            <MainPage 
+              darkMode={darkMode} 
+              showMain={showMain} 
+              pagesAnimatVar={pagesAnimatVar} 
+              arrowAnimateVar={arrowAnimateVar}
+            />} 
+        />
+        <Route 
+          path="/about" 
+          element={
+            <AboutPage 
+              darkMode={darkMode} 
+              pagesAnimatVar={pagesAnimatVar} 
+              arrowAnimateVar={arrowAnimateVar} 
+              arrowGlitch={arrowGlitch}
+              arrowGlitchDark={arrowGlitchDark}
+            />}
+         />
         <Route path="/proj" element={<ProjectPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch} fadeTransitionAnimatVar={fadeTransitionAnimatVar}/>}/>
         <Route path="/journey" element={<JourneyPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>
         <Route path="/contact" element={<ContactPage pagesAnimatVar={pagesAnimatVar} navGlitch={navGlitch} fadeTransitionAnimatVar={fadeTransitionAnimatVar}/>}/>

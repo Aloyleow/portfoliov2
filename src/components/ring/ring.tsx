@@ -42,8 +42,8 @@ const Ring: React.FC<RingProps> = ({setShowNavProject, darkMode}) => {
     createContainers: true,
     hideOverflow: true,
     glitchTimeSpan: {
-      start: isWindowHp ? 0.3 : 0,
-      end: 0.33,   
+      start: isWindowHp ? 0.1 : 0,
+      end: 0.2,   
     },
     shake: false,
     slice: {
@@ -51,7 +51,7 @@ const Ring: React.FC<RingProps> = ({setShowNavProject, darkMode}) => {
       velocity: 16, 
     },
     timing: {
-      duration: isWindowHp ? 15000 : 1000,  
+      duration: isWindowHp ? 10000 : 1000,  
       iterations: Infinity, 
     },
   });

@@ -85,7 +85,7 @@ function App() {
 
   //   setDarkMode(darkModeSettings.matches)
   // },[])
-  console.log(darkMode)
+
   const navGlitch: GlitchHandle = useGlitch({
     playMode: "click",
     createContainers: true,

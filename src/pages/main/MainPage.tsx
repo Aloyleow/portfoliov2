@@ -60,9 +60,10 @@ const MainPage: React.FC<MainPageProps> = ({ pagesAnimatVar, arrowAnimateVar, da
 
       >
         <div className="mainPageMainDiv" onClick={() => navigate("/about")}>
-          <div ref={darkMode ? mainGlitch2.ref : mainGlitch.ref}>
-            <div>
+          <div ref={darkMode ? mainGlitch2.ref : mainGlitch.ref} className="mainPageImgDiv">
+            <div className="mainPageImgInnerDiv">
               <img src={darkMode ? '/mainWhite.svg' : '/mainBlack.svg'} alt="MainPageImage" className="mainPageImg"/>
+              <img src={darkMode ? '/mainWhite.svg' : '/mainBlack.svg'} alt="MainPageImage" className="mainPageImgRe"/>
             </div>
           </div>
           <motion.div
@@ -72,7 +73,7 @@ const MainPage: React.FC<MainPageProps> = ({ pagesAnimatVar, arrowAnimateVar, da
             animate="animate"
             custom={{ xLen: -50, yLen: 0 }}
           >
-            <img src="/arrow.svg" alt="rightarrow" style={{ width: "3vh" }} />
+            <img src={darkMode ? '/arrowWhite.svg' : '/arrow.svg'} alt="rightarrow" style={{ width: "3vh" }} />
           </motion.div>
         </div>
       </motion.div>

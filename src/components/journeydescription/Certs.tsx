@@ -18,7 +18,7 @@ const Certification: React.FC<CertificationProps> = ({desAnimatVar, darkMode}) =
             variants={desAnimatVar}
             animate="animate"
             initial="initial"
-            exit="exit"
+            
             custom={{time: index, timeExit: index}}  
           >
             <div className='certImgNameDiv'>

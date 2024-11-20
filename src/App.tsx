@@ -10,7 +10,7 @@ import ProjectPage from "./pages/projects/ProjectPage";
 import JourneyPage from "./pages/journey/JourneyPage";
 import ContactPage from "./pages/contact/ContactPage";
 import Landing from "./components/landing/Landing";
-import Background from "./components/background/Background";
+
 
 const pagesAnimatVar: Variants = {
   initial: {

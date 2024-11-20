@@ -19,7 +19,7 @@ const Experience: React.FC<ExperienceProps> = ({desAnimatVar, darkMode}) => {
               variants={desAnimatVar} 
               initial="initial"
               animate="animate"
-              exit="exit"
+              
               custom={{time: index, timeExit: index}}   
             >
               <div className='expImgNameDiv'>

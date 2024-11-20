@@ -28,7 +28,7 @@ const pagesAnimatVar: Variants = {
   exit: {
     opacity: 0,
     transition: {
-      duration: 0.3,
+      duration: 0.15,
     }
   }
 };
@@ -167,7 +167,7 @@ function App() {
   return (
     <div style={{backgroundColor: darkMode ? "black" : "white"}} className="routesDiv">
       <NavBar navGlitch={navGlitch} showMain={showMain} setDarkMode={setDarkMode} darkMode={darkMode}/>
-      <Background darkMode={darkMode}/>
+      {/* <Background darkMode={darkMode}/> */}
       <AnimatePresence mode="wait">
       {!showMain && <Landing darkMode={darkMode} setShowMain={setShowMain} pagesAnimatVar={pagesAnimatVar}/>}
       {showMain && 

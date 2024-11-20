@@ -20,13 +20,6 @@ const desAnimatVar: Variants = {
       delay: time * 0.5,
     },
   }),
-  exit: ({ timeExit }: { timeExit: number }) => ({
-    opacity: 0,
-    transition: {
-      delay: timeExit * 0.2,
-      duration: 2,
-    }
-  })
 };
 
 type JourneyPageProps = {

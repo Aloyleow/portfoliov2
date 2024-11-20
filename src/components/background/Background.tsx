@@ -30,7 +30,7 @@ const Background: React.FC<BackgroundProps> = ({darkMode}) => {
   });
 
   return (
-    <div className="backgroundMainDiv" style={{backgroundColor: darkMode ? "black" : "white"}}>
+    <div className="backgroundMainDiv">
       {/* <div className="sparks" style={{left: "50%", top: "50%"}}>
         <div ref={sparkGlitch.ref} className='sparkGlitch'>
 

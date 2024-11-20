@@ -9,25 +9,27 @@ import { useNavigate } from 'react-router-dom';
 import { GlitchHandle } from 'react-powerglitch';
 
 type ProjectDescrip = {
-  index: string
-  name: string
-  front: string[]
-  back: string[]
-  data: string[]
-  dev: string[]
-  api: string[]
-  description: string
-  image: string
+  index: string;
+  name: string;
+  front: string[];
+  back: string[];
+  data: string[];
+  dev: string[];
+  api: string[];
+  description: string;
+  image: string;
 };
 
 type ProjectPageProps = {
-  pagesAnimatVar: Variants
-  arrowAnimateVar: Variants
-  arrowGlitch: GlitchHandle
-  fadeTransitionAnimatVar: Variants
+  pagesAnimatVar: Variants;
+  arrowAnimateVar: Variants;
+  arrowGlitch: GlitchHandle;
+  fadeTransitionAnimatVar: Variants;
+  arrowGlitchDark: GlitchHandle;
+  darkMode: boolean;
 };
 
-const ProjectPage: React.FC<ProjectPageProps> = ({pagesAnimatVar, arrowAnimateVar, arrowGlitch, fadeTransitionAnimatVar}) => {
+const ProjectPage: React.FC<ProjectPageProps> = ({ pagesAnimatVar, arrowAnimateVar, arrowGlitch, fadeTransitionAnimatVar, arrowGlitchDark, darkMode }) => {
   const navigate = useNavigate()
   const [projectNumber, setProjectNumber] = useState<number>(0)
   const [projectShown, setprojectShown] = useState<ProjectDescrip>({
@@ -56,11 +58,10 @@ const ProjectPage: React.FC<ProjectPageProps> = ({pagesAnimatVar, arrowAnimateVa
       description: projects[index].about,
       image: projects[index].image
     })
-  }
+  };
 
-  
   const handleLeftArrow = () => {
-    if (projectNumber === 4) {setShowNav(true)}
+    if (projectNumber === 4) { setShowNav(true) }
     if (projectNumber === 0) {
       setProjectNumber(projects.length - 1)
       handleProjectShown(projects.length - 1)
@@ -68,11 +69,11 @@ const ProjectPage: React.FC<ProjectPageProps> = ({pagesAnimatVar, arrowAnimateVa
       setProjectNumber(projectNumber - 1)
       handleProjectShown(projectNumber - 1)
     }
-    
-  }
+
+  };
 
   const handleRightArrow = () => {
-    if (projectNumber === 4) {setShowNav(true)}
+    if (projectNumber === 4) { setShowNav(true) }
     if (projectNumber === projects.length - 1) {
       setProjectNumber(0)
       handleProjectShown(0)
@@ -80,9 +81,9 @@ const ProjectPage: React.FC<ProjectPageProps> = ({pagesAnimatVar, arrowAnimateVa
       setProjectNumber(projectNumber + 1)
       handleProjectShown(projectNumber + 1)
     }
-  }
+  };
 
- 
+
 
   return (
     <div className="pagesLayoutDiv">
@@ -90,43 +91,67 @@ const ProjectPage: React.FC<ProjectPageProps> = ({pagesAnimatVar, arrowAnimateVa
         variants={pagesAnimatVar}
         animate="animate"
         initial="initial"
-        exit="exit" 
+        exit="exit"
         className="projectMainDiv"
       >
         <div className='projectDescripDiv'>
-          <div className='projectDescripfirstSect pageHeading'>
-            <svg className='projectSvg' viewBox="0 0 480 90" fill="none" xmlns="http://www.w3.org/2000/svg" onAnimationEnd={() => setShowProjects(true)}>
-              <path d="M14.4 43.4H40V11.6H14.4V43.4ZM54.2 10.8V44.2L43.4 55H14.4V70H0.2V-4.76837e-06H43.4L54.2 10.8ZM76.8023 37.2H103.802V11.6H76.8023V37.2ZM118.002 10.8V37.7L110.402 45.3L122.502 70H106.802L97.1023 48.8H76.8023V70H62.6023V-4.76837e-06H107.202L118.002 10.8ZM127.832 59.2V10.8L138.632 -4.76837e-06H175.032L185.832 10.8V59.2L175.032 70H138.632L127.832 59.2ZM142.432 12.4V57.6H171.232V12.4H142.432ZM193.801 58.6V38H208.001V57.2H231.601V12.4H196.601V-4.76837e-06H245.801V58.6L234.401 70H205.201L193.801 58.6ZM255.962 70V-4.76837e-06H304.762V12H270.162V28.4H299.762V40H270.162V58H305.762V70H255.962ZM313.77 59.2V10.8L324.57 -4.76837e-06H360.37V12.9H328.37V57.1H361.37V70H324.57L313.77 59.2ZM385.441 70V12.4H366.141V-4.76837e-06H418.941V12.4H399.641V70H385.441ZM426.977 70V57.6H465.777V41.4L425.977 38.1V10.4L436.377 -4.76837e-06H478.977V12.4H440.177V27.6L479.977 30.9V59.6L469.577 70H426.977Z" fill="black" />
-            </svg>
+          <div className='projectDescripfirstSect pageHeading' style={{ "--fillColor": darkMode ? "white" : "black" } as React.CSSProperties}>
+            {!darkMode && 
+            <svg 
+              className='projectSvg' 
+              viewBox="0 0 309 50" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg" 
+              onAnimationEnd={() => setShowProjects(true)}
+            >
+              <path d="M11.2303 26.824H24.9263V8.776H11.2303V26.824ZM35.6783 8.008V27.592L27.8703 35.4H11.2303V45H0.47825V0.199997H27.8703L35.6783 8.008ZM51.2928 23.752H66.0128V8.776H51.2928V23.752ZM76.7648 8.008V24.2L71.5808 29.384L79.3248 45H67.2928L61.5968 32.328H51.2928V45H40.5408V0.199997H68.9568L76.7648 8.008ZM82.3488 37.192V8.008L90.1568 0.199997H112.301L120.109 8.008V37.192L112.301 45H90.1568L82.3488 37.192ZM93.4848 9.544V35.656H108.973V9.544H93.4848ZM124.569 36.936V23.88H135.321V35.272H147.737V9.544H126.617V0.199997H158.489V36.936L150.425 45H132.633L124.569 36.936ZM164.416 45V0.199997H195.904V9.16H175.168V17.864H192.704V26.44H175.168V36.04H196.544V45H164.416ZM201.349 37.192V8.008L209.157 0.199997H231.685V9.992H212.485V35.208H232.325V45H209.157L201.349 37.192ZM246.959 45V9.544H235.311V0.199997H269.359V9.544H257.711V45H246.959ZM274.176 45V35.656H297.984V27.272L273.536 25.16V7.624L280.96 0.199997H308.096V9.544H284.288V17.288L308.736 19.4V37.576L301.312 45H274.176Z" fill="black" />
+            </svg>}
+            {darkMode && 
+            <svg 
+              className='projectSvg' 
+              viewBox="0 0 309 50" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+              onAnimationEnd={() => setShowProjects(true)}    
+            >
+              <path d="M11.2303 26.824H24.9263V8.776H11.2303V26.824ZM35.6783 8.008V27.592L27.8703 35.4H11.2303V45H0.47825V0.199997H27.8703L35.6783 8.008ZM51.2928 23.752H66.0128V8.776H51.2928V23.752ZM76.7648 8.008V24.2L71.5808 29.384L79.3248 45H67.2928L61.5968 32.328H51.2928V45H40.5408V0.199997H68.9568L76.7648 8.008ZM82.3488 37.192V8.008L90.1568 0.199997H112.301L120.109 8.008V37.192L112.301 45H90.1568L82.3488 37.192ZM93.4848 9.544V35.656H108.973V9.544H93.4848ZM124.569 36.936V23.88H135.321V35.272H147.737V9.544H126.617V0.199997H158.489V36.936L150.425 45H132.633L124.569 36.936ZM164.416 45V0.199997H195.904V9.16H175.168V17.864H192.704V26.44H175.168V36.04H196.544V45H164.416ZM201.349 37.192V8.008L209.157 0.199997H231.685V9.992H212.485V35.208H232.325V45H209.157L201.349 37.192ZM246.959 45V9.544H235.311V0.199997H269.359V9.544H257.711V45H246.959ZM274.176 45V35.656H297.984V27.272L273.536 25.16V7.624L280.96 0.199997H308.096V9.544H284.288V17.288L308.736 19.4V37.576L301.312 45H274.176Z" fill="white" />
+            </svg>}
           </div>
-          {showProjects && <ProjectDescription projectShown={projectShown} fadeTransitionAnimatVar={fadeTransitionAnimatVar}/>}
+          {showProjects && 
+          <ProjectDescription 
+            projectShown={projectShown} 
+            fadeTransitionAnimatVar={fadeTransitionAnimatVar} 
+            darkMode={darkMode}
+          />}
         </div>
         <div className='projectScreenhpHoldingDiv'>
-       {showProjects && <ProjectScreen 
-          projectShown={projectShown} 
-          setprojectShown={setprojectShown} 
-          handleRightArrow={handleRightArrow}
-          handleLeftArrow={handleLeftArrow}
-          fadeTransitionAnimatVar={fadeTransitionAnimatVar}
-        />}
+          {showProjects && 
+          <ProjectScreen
+            projectShown={projectShown}
+            setprojectShown={setprojectShown}
+            handleRightArrow={handleRightArrow}
+            handleLeftArrow={handleLeftArrow}
+            fadeTransitionAnimatVar={fadeTransitionAnimatVar}
+            darkMode={darkMode}
+          />}
         </div>
         <div className='projectNavHolder'>
-       {showNav && <div className="projectNavDiv"> 
+          {showNav && <div className="projectNavDiv">
             <div className="navNextImgDiv" onClick={() => navigate("/journey")}>
               <motion.div
                 variants={arrowAnimateVar}
                 initial="initial"
                 animate="animate"
                 transition={{ delay: 10 }}
-                custom={{ xLen: -50, yLen: 0 }}          
+                custom={{ xLen: -50, yLen: 0 }}
               >
-                <img src="/arrow.svg" alt="arrowright" className="navNextImg" />
+                <img src={darkMode ? '/arrowWhite.svg' : '/arrow.svg'} alt="arrowright" className="navNextImg" />
               </motion.div>
-              <div ref={arrowGlitch.ref}>
-                <h5>JOURNEY</h5>
+              <div ref={darkMode ? arrowGlitchDark.ref : arrowGlitch.ref}>
+                <h5 style={{color: darkMode ? "white" : "black"}}>JOURNEY</h5>
               </div>
             </div>
-        </div>}
+          </div>}
         </div>
       </motion.div>
     </div>

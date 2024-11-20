@@ -2,9 +2,8 @@
 
 .backgroundMainDiv {
   position: absolute;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-  max-height: 100vh;
   max-width: 100vw;
   z-index: -10;
   overflow: hidden;

@@ -23,7 +23,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ pagesAnimatVar, arrowAnimateVar, 
   const navigate = useNavigate();
 
   return (
-    <div className="aboutPageDiv">
+    <div className="pagesLayoutDiv ">
       <motion.div
         className="aboutPageDivB"
         variants={pagesAnimatVar}

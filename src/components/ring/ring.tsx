@@ -24,17 +24,18 @@ const ringItemAnimateVar: Variants = {
       duration: 0.8,
     }
   })
-}
+};
+
 type RingProps = {
-  setShowNavProject: React.Dispatch<React.SetStateAction<boolean>>
-  darkMode: boolean
-}
+  setShowNavProject: React.Dispatch<React.SetStateAction<boolean>>;
+  darkMode: boolean;
+};
 
 const Ring: React.FC<RingProps> = ({setShowNavProject, darkMode}) => {
-  const [ringType, setRingType] = useState<boolean>(true)
+  const [ringType, setRingType] = useState<boolean>(true);
 
-  const handleRingTypeOnClick = (): void => setRingType((prev: boolean) => !prev)
-  const isWindowHp = window.innerWidth < 999
+  const handleRingTypeOnClick = (): void => setRingType((prev: boolean) => !prev);
+  const isWindowHp = window.innerWidth < 999;
 
   const ringGlitch: GlitchHandle = useGlitch({
     playMode: isWindowHp ? "always" : "hover",

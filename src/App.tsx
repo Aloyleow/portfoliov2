@@ -4,7 +4,7 @@ import { useGlitch, GlitchHandle } from 'react-powerglitch';
 
 import MainPage from "./pages/main/MainPage"
 import NavBar from "./pages/navbar/NavBar"
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import AboutPage from "./pages/aboutme/AboutPage";
 import ProjectPage from "./pages/projects/ProjectPage";
 import JourneyPage from "./pages/journey/JourneyPage";
@@ -105,6 +105,25 @@ function App() {
     },
   });
 
+  const navGlitchDark: GlitchHandle = useGlitch({
+    playMode: "click",
+    createContainers: true,
+    hideOverflow: true,
+    glitchTimeSpan: {
+      start: 0,
+      end: 0.25,   
+    },
+    shake: false,
+    slice: {
+      count: 6, 
+      velocity: 16, 
+    },
+    timing: {
+      duration: 500, 
+      iterations: 1, 
+    },
+  });
+
   const arrowGlitch: GlitchHandle = useGlitch({
     playMode: "always",
     createContainers: true,
@@ -146,7 +165,7 @@ function App() {
   });
   
   return (
-    <>
+    <div style={{backgroundColor: darkMode ? "black" : "white"}} className="routesDiv">
       <NavBar navGlitch={navGlitch} showMain={showMain} setDarkMode={setDarkMode} darkMode={darkMode}/>
       <Background darkMode={darkMode}/>
       <AnimatePresence mode="wait">
@@ -174,13 +193,44 @@ function App() {
               arrowGlitchDark={arrowGlitchDark}
             />}
          />
-        <Route path="/proj" element={<ProjectPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch} fadeTransitionAnimatVar={fadeTransitionAnimatVar}/>}/>
-        <Route path="/journey" element={<JourneyPage pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar} arrowGlitch={arrowGlitch}/>}/>
-        <Route path="/contact" element={<ContactPage pagesAnimatVar={pagesAnimatVar} navGlitch={navGlitch} fadeTransitionAnimatVar={fadeTransitionAnimatVar}/>}/>
+        <Route 
+          path="/proj" 
+          element={
+            <ProjectPage 
+              darkMode={darkMode}
+              pagesAnimatVar={pagesAnimatVar} 
+              arrowAnimateVar={arrowAnimateVar} 
+              arrowGlitch={arrowGlitch} 
+              fadeTransitionAnimatVar={fadeTransitionAnimatVar}
+              arrowGlitchDark={arrowGlitchDark}
+            />}
+        />
+        <Route 
+          path="/journey" 
+          element={
+            <JourneyPage 
+              darkMode={darkMode}
+              pagesAnimatVar={pagesAnimatVar} 
+              arrowAnimateVar={arrowAnimateVar} 
+              arrowGlitch={arrowGlitch}  
+              arrowGlitchDark={arrowGlitchDark}
+            />}
+        />
+        <Route 
+          path="/contact" 
+          element={
+            <ContactPage 
+              darkMode={darkMode}
+              pagesAnimatVar={pagesAnimatVar} 
+              navGlitch={navGlitch} 
+              fadeTransitionAnimatVar={fadeTransitionAnimatVar}
+              navGlitchDark={navGlitchDark}
+            />}
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>}
       </AnimatePresence>
-    </>
+    </div>
   )
 }
 

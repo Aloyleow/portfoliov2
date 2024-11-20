@@ -6,10 +6,7 @@ import { Variants } from "motion/react";
 import NavBarLeft from "../../components/navbarleft/NavBarLeft";
 import { GlitchHandle } from "react-powerglitch";
 
-type NavBarProps = {
-  navGlitch: GlitchHandle
-  showMain: boolean
-}
+
 
 const consoleAnimateVar: Variants = {
   initial : (num: number = 50) => ({
@@ -33,9 +30,16 @@ const consoleAnimateVar: Variants = {
       duration: 0.6,
     }
   })
-}
+};
 
-const NavBar: React.FC<NavBarProps> = ({ navGlitch, showMain}) => {
+type NavBarProps = {
+  navGlitch: GlitchHandle;
+  showMain: boolean;
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+  darkMode: boolean; 
+};
+
+const NavBar: React.FC<NavBarProps> = ({ navGlitch, showMain, setDarkMode, darkMode}) => {
   const [consoleView, setConsoleView] = useState(false)
   
   
@@ -45,14 +49,27 @@ const NavBar: React.FC<NavBarProps> = ({ navGlitch, showMain}) => {
     } else if ( consoleView=== true) {
       setConsoleView(false)
     }
-  }
+  };
 
   return (
     
     <>
       {showMain && <NavBarTop handleConsoleView={handleConsoleView} setConsoleView={setConsoleView} navGlitch={navGlitch}/>}
-      <NavBarRight consoleAnimateVar={consoleAnimateVar} setConsoleView={setConsoleView} consoleView={consoleView} navGlitch={navGlitch}/>
-      <NavBarLeft consoleAnimateVar={consoleAnimateVar} setConsoleView={setConsoleView} consoleView={consoleView} navGlitch={navGlitch}/>
+      <NavBarRight 
+        consoleAnimateVar={consoleAnimateVar} 
+        setConsoleView={setConsoleView} 
+        consoleView={consoleView} 
+        navGlitch={navGlitch}
+        darkMode={darkMode}
+      />
+      <NavBarLeft 
+        consoleAnimateVar={consoleAnimateVar} 
+        setConsoleView={setConsoleView} 
+        consoleView={consoleView} 
+        navGlitch={navGlitch}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
     </>
   )
 }

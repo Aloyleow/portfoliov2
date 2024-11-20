@@ -1,6 +1,6 @@
 .navBarLeftMainDiv {
   position: fixed;
-  left: 0
+  left: 0;
 }
 
 .navBarLeftCont {
@@ -17,6 +17,7 @@
   align-items: center;
   width: 50px;
   height: 15vh;
+  
 }
 
 .navBarLeftSet div {

@@ -27,7 +27,7 @@ const jourScreenAnimatVar: Variants = {
 type ScreenAnimateDirection = {
   xDirIni: number
   xDirExit: number
-}
+};
 
 const screenAnimatVar: Variants = {
   initial: ({ xDirIni }: {xDirIni: number}) => ({
@@ -48,12 +48,13 @@ const screenAnimatVar: Variants = {
 };
 
 type JourneyScreenProps = {
-  certExp: boolean
-  setCertExp: React.Dispatch<React.SetStateAction<boolean>>
-  setShowNav: React.Dispatch<React.SetStateAction<boolean>>
+  certExp: boolean;
+  setCertExp: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowNav: React.Dispatch<React.SetStateAction<boolean>>;
+  darkMode: boolean
 }
 
-const JourneyScreen: React.FC<JourneyScreenProps> = ({ certExp, setCertExp, setShowNav }) => {
+const JourneyScreen: React.FC<JourneyScreenProps> = ({ certExp, setCertExp, setShowNav, darkMode }) => {
   const [screenAnimateDirection, setscreenAnimateDirection] = useState<ScreenAnimateDirection>({
     xDirIni: 0,
     xDirExit: 0
@@ -73,6 +74,28 @@ const JourneyScreen: React.FC<JourneyScreenProps> = ({ certExp, setCertExp, setS
   }
 
   const scrArrowGlitch: GlitchHandle = useGlitch({
+    playMode:  "click",
+    createContainers: true,
+    hideOverflow: true,
+    glitchTimeSpan: {
+      start: 0,
+      end: 0.45,   
+    },
+    shake: {
+      velocity: 5
+    },
+    slice: {
+      count: 6, 
+      velocity: 16, 
+    },
+    timing: {
+      duration: 1000, 
+      iterations: 1,
+      easing: "ease-in-out" 
+    },
+  });
+
+  const scrArrowGlitchDark: GlitchHandle = useGlitch({
     playMode:  "click",
     createContainers: true,
     hideOverflow: true,
@@ -134,8 +157,8 @@ const JourneyScreen: React.FC<JourneyScreenProps> = ({ certExp, setCertExp, setS
             setShowNav(true)
             handleScreenAnimationLeft()
           }}>
-          <div ref={scrArrowGlitch.ref}>
-            <img src='/arrow.svg' alt='arrowleft' className='arrImgLeft' />
+          <div ref={darkMode ? scrArrowGlitchDark.ref : scrArrowGlitch.ref}>
+            <img src={darkMode ? '/arrowWhite.svg' : '/arrow.svg'} alt='arrowleft' className='arrImgLeft' />
           </div>
         </div>
         <div>
@@ -151,7 +174,7 @@ const JourneyScreen: React.FC<JourneyScreenProps> = ({ certExp, setCertExp, setS
                 custom={screenAnimateDirection}
               >
                 <div ref={screenGlitch.ref}>
-                  <div className='journeyScreenImgDiv' style={{ "--urlcontent": `url(/journey/certs.png)` } as React.CSSProperties}>
+                  <div className='journeyScreenImgDiv' style={{ "--urlcontent": `url(/journey/certs.png)`, "--opacityRange": darkMode ? 0.6 : 0.2  } as React.CSSProperties}>
                     <img src='/journey/certs.png' alt='certs' className='journeyScreenImg'/>
                   </div>
                 </div>
@@ -166,7 +189,7 @@ const JourneyScreen: React.FC<JourneyScreenProps> = ({ certExp, setCertExp, setS
                 custom={screenAnimateDirection}
               >
                 <div ref={screenGlitch.ref}>
-                  <div className='journeyScreenImgDiv' style={{ "--urlcontent": `url(/journey/career.png)` } as React.CSSProperties}>
+                  <div className='journeyScreenImgDiv' style={{ "--urlcontent": `url(/journey/career.png)`, "--opacityRange": darkMode ? 0.6 : 0.2  } as React.CSSProperties}>
                     <img src='/journey/career.png' alt='career' className='journeyScreenImg' />
                   </div>
                 </div>
@@ -183,8 +206,8 @@ const JourneyScreen: React.FC<JourneyScreenProps> = ({ certExp, setCertExp, setS
             handleScreenAnimationRight()
           }}
         >
-          <div ref={scrArrowGlitch.ref}>
-            <img src='/arrow.svg' alt='arrowright' className='arrImgRight' />
+          <div ref={darkMode ? scrArrowGlitchDark.ref : scrArrowGlitch.ref}>
+            <img src={darkMode ? '/arrowWhite.svg' : '/arrow.svg'} alt='arrowright' className='arrImgRight' />
           </div>
         </div>
       </div>

@@ -5,10 +5,11 @@ import { motion, Variants } from 'motion/react'
 import React from 'react'
 
 type ExperienceProps = {
-  desAnimatVar: Variants
-}
+  desAnimatVar: Variants;
+  darkMode: boolean;
+};
 
-const Experience: React.FC<ExperienceProps> = ({desAnimatVar}) => {
+const Experience: React.FC<ExperienceProps> = ({desAnimatVar, darkMode}) => {
   return (
     
         <div className='expDisplayDiv'>
@@ -26,11 +27,11 @@ const Experience: React.FC<ExperienceProps> = ({desAnimatVar}) => {
                   <img src={obj.src} alt={obj.alt} className='expImg'/>
                 </div>
                 <div className='expNameDiv'>
-                  <h5>{obj.name}</h5>
+                  <h5 style={{color: darkMode ? "white" : "black"}}>{obj.name}</h5>
                 </div>
               </div>
               <div className='expAboutDiv'>
-                <p>{obj.about}</p>
+                <p style={{color: darkMode ? "white" : "black"}}>{obj.about}</p>
               </div>
             </motion.div>
           ))}

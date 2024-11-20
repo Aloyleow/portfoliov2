@@ -64,7 +64,8 @@
     background-size: cover; 
     background-position: center; 
     transform: scaleY(-1) skewX(50deg);
-    filter: blur(3px) brightness(0.7) opacity(0.1);
+    filter: blur(3px) brightness(0.7);
+    opacity: var(--opacityRange);
   }
 
 

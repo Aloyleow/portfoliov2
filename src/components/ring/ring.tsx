@@ -20,20 +20,22 @@ const ringItemAnimateVar: Variants = {
   exit: ({ delay }: { delay: number }) => ({
     opacity: 0,
     transition: {
-      delay:0.12 * delay,
+      delay:0.06 * delay,
       duration: 0.8,
     }
   })
-}
+};
+
 type RingProps = {
-  setShowNavProject: React.Dispatch<React.SetStateAction<boolean>>
-}
+  setShowNavProject: React.Dispatch<React.SetStateAction<boolean>>;
+  darkMode: boolean;
+};
 
-const Ring: React.FC<RingProps> = ({setShowNavProject}) => {
-  const [ringType, setRingType] = useState<boolean>(true)
+const Ring: React.FC<RingProps> = ({setShowNavProject, darkMode}) => {
+  const [ringType, setRingType] = useState<boolean>(true);
 
-  const handleRingTypeOnClick = (): void => setRingType((prev: boolean) => !prev)
-  const isWindowHp = window.innerWidth < 999
+  const handleRingTypeOnClick = (): void => setRingType((prev: boolean) => !prev);
+  const isWindowHp = window.innerWidth < 999;
 
   const ringGlitch: GlitchHandle = useGlitch({
     playMode: isWindowHp ? "always" : "hover",
@@ -78,7 +80,7 @@ const Ring: React.FC<RingProps> = ({setShowNavProject}) => {
               >
                 <div ref={ringGlitch.ref}>
                   <img src={obj.icon} width="20px" height="20px" alt={`${obj.name} icon`} />
-                  <p>{obj.name}</p>
+                  <p style={{color: darkMode ? "white" : "black"}}>{obj.name}</p>
                 </div>
               </motion.div>
             </div>
@@ -100,7 +102,7 @@ const Ring: React.FC<RingProps> = ({setShowNavProject}) => {
                 >
                   <div ref={ringGlitch.ref}>
                     <img src={obj.icon} width="20px" height="20px" alt={`${obj.name} icon`} />
-                    <p>{obj.name}</p>
+                    <p style={{color: darkMode ? "white" : "black"}}>{obj.name}</p>
                   </div>
                 </motion.div>
               </div>

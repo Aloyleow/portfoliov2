@@ -14,24 +14,24 @@ import { useNavigate } from 'react-router-dom';
 const logos: Logos = [
   {
     imageSrcLight: "/navbar/gitblack.svg",
-    imageSrcDark: "",
+    imageSrcDark: "/navbar/gitwhite.svg",
     link: "https://github.com/Aloyleow/",
     alttxt: "githubLogo",
   },
   {
     imageSrcLight: "/navbar/linkblack.svg",
-    imageSrcDark: "",
+    imageSrcDark: "/navbar/linkwhite.svg",
     link: "https://www.linkedin.com/in/aloyleow",
     alttxt: "linkinLogo",
   },
-]
+];
 
 type Logos = {
   imageSrcLight: string
   imageSrcDark: string
   link: string
   alttxt: string
-}[]
+}[];
 
 type EmailValidated = {
   showName: boolean;
@@ -43,14 +43,14 @@ type EmailValidated = {
   typedName: boolean;
   typedContact: boolean;
   typedMessage: boolean;
-}
+};
 
 type FormikData = {
   user_name: string;
   message: string;
   contactemail: string;
   contact_no: string;
-}
+};
 
 type FormErrors = {
   user_name?: string;
@@ -63,16 +63,20 @@ type ContactPageProps = {
   pagesAnimatVar: Variants
   navGlitch: GlitchHandle
   fadeTransitionAnimatVar: Variants
-}
+  darkMode: boolean
+  navGlitchDark: GlitchHandle
+};
 
-const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fadeTransitionAnimatVar }) => {
-  const navigate = useNavigate()
+const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fadeTransitionAnimatVar, darkMode, navGlitchDark}) => {
+  const navigate = useNavigate();
+
   const [emailData, setEmailData] = useState<FormikData>({
     user_name: "",
     message: "",
     contactemail: "",
     contact_no: ""
-  })
+  });
+
   const [emailValidated, setEmailValidated] = useState<EmailValidated>({
     showName: true,
     showMessage: false,
@@ -83,18 +87,11 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
     typedName: true,
     typedMessage: false,
     typedContact: false,
-  })
-  const [notloading, setNotLoading] = useState<boolean>(true)
-  const [submitted, setSubmitted] = useState<boolean>(false)
-  const [showArrow, setShowArrow] = useState<boolean>(true)
+  });
 
-  // const handleNavigate = (link: string) => {
-  //   if (link === "/") {
-  //     return "_self"
-  //   } else {
-  //     return "_blank"
-  //   }
-  // }
+  const [notloading, setNotLoading] = useState<boolean>(true);
+  const [submitted, setSubmitted] = useState<boolean>(false);
+  const [showArrow, setShowArrow] = useState<boolean>(true);
 
   const handleEmailValidate = (validateForm: (values?: FormikData) => Promise<FormErrors>, values: FormikData) => {
     validateForm(values).then((errors) => {
@@ -156,8 +153,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
     setShowArrow(false)
     setEmailValidated((prev) => ({...prev, showSubmit: false}))
     setNotLoading(true)
-    setSubmitted(true)
-    
+    setSubmitted(true) 
   };
 
   const submittedGlitch: GlitchHandle = useGlitch({
@@ -175,11 +171,28 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
     },
     timing: {
       duration: 20000, 
-      iterations: Infinity,
-      
+      iterations: Infinity,  
     },
   });
 
+  const submittedGlitchDark: GlitchHandle = useGlitch({
+    playMode: "always",
+    createContainers: true,
+    hideOverflow: true,
+    glitchTimeSpan: {
+      start: 0,
+      end: 0.9,   
+    },
+    shake: false,
+    slice: {
+      count: 30, 
+      velocity: 20, 
+    },
+    timing: {
+      duration: 20000, 
+      iterations: Infinity,  
+    },
+  });
 
   return (
     <div className="pagesLayoutDiv">
@@ -192,10 +205,10 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
       >
         <div className="contactPageMainDiv">
           <div>
-            <EmailScreen emailData={emailData} emailValidated={emailValidated} />
+            <EmailScreen emailData={emailData} emailValidated={emailValidated} darkMode={darkMode}/>
           </div>
           <div className='contactPageFormDiv'>
-            <h5>Send me a message!</h5>
+            <h5 style={{color: darkMode ? "white" : "black"}}>Send me a message!</h5>
             <Formik
               validationSchema={yupSchema}
               onSubmit={sendEmail}
@@ -320,8 +333,8 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
                   <div className='submitButtonHolder'>
                     {!notloading &&
                       <div>
-                        <div ref={submittedGlitch.ref}>
-                          <h5>SUBMITTING</h5>
+                        <div ref={darkMode ? submittedGlitchDark.ref : submittedGlitch.ref}>
+                          <h5 style={{color: darkMode ? "white" : "black"}}>SUBMITTING</h5>
                         </div>  
                       </div>}
                     {submitted &&
@@ -340,12 +353,12 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
 
                     {showArrow && notloading && !emailValidated.showSubmit &&
                       <div>
-                        <div className="validateArrowDiv" ref={navGlitch.ref}>
+                        <div className="validateArrowDiv" ref={darkMode ? navGlitchDark.ref : navGlitch.ref}>
                           <div onClick={() => handleEmailValidate(validateForm, values)} >
-                            <img src="/arrow.svg" alt="arrowright" className="validateArrowImg" />
+                            <img src={darkMode ? '/arrowWhite.svg' : '/arrow.svg'}  alt="arrowright" className="validateArrowImg" />
                           </div>
                           <div>
-                            <h5 className="validateArrowDivText">next</h5>
+                            <h5 className="validateArrowDivText" style={{color: darkMode ? "white" : "black"}}>next</h5>
                           </div>
                         </div>
                       </div>}
@@ -356,18 +369,18 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
           </div>
           <div className='contactPageLogoDiv'>
             {logos.map((logos, index) => (
-              <div key={index} ref={navGlitch.ref}>
+              <div key={index} ref={darkMode ? navGlitchDark.ref : navGlitch.ref}>
                 <a href={logos.link} target="_blank" rel="noopener noreferrer">
-                  <img src={logos.imageSrcLight} alt={logos.alttxt} width="32px" />
+                  <img src={darkMode ? logos.imageSrcDark : logos.imageSrcLight} alt={logos.alttxt} width="32px" />
                 </a>
               </div>
             ))}
-            <div onClick={() => navigate("/")} ref={navGlitch.ref} style={{cursor: 'pointer'}}>
-              <img src='/contact/home.svg' alt='homelogo' width="32px"/>
+            <div onClick={() => navigate("/")} ref={darkMode ? navGlitchDark.ref : navGlitch.ref} style={{cursor: 'pointer'}}>
+              <img src={darkMode ? '/contact/homeWhite.svg' : '/contact/home.svg'} alt='homelogo' width="32px"/>
             </div>
           </div>
           <div>
-            <p>aloyleow91@gmail.com</p>
+            <h5 style={{color: darkMode ? "white" : "black"}}>aloyleow91@gmail.com</h5>
           </div>
         </div>
       </motion.div>

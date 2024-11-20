@@ -5,21 +5,21 @@ import { useGlitch, GlitchHandle } from 'react-powerglitch';
 
 
 type ProjectDescrip = {
-  index: string
-  name: string
-  front: string[]
-  back: string[]
-  data: string[]
-  dev: string[]
-  api: string[]
-  description: string
-  image: string
+  index: string;
+  name: string;
+  front: string[];
+  back: string[];
+  data: string[];
+  dev: string[];
+  api: string[];
+  description: string;
+  image: string;
 };
 
 type ScreenAnimateDirection = {
   xDirIni: number
   xDirExit: number
-}
+};
 
 const screenAnimatVar: Variants = {
   initial: ({ xDirIni }: {xDirIni: number}) => ({
@@ -40,14 +40,15 @@ const screenAnimatVar: Variants = {
 };
 
 type ProjectScreenProps = {
-  projectShown: ProjectDescrip
-  setprojectShown: React.Dispatch<React.SetStateAction<ProjectDescrip>>
-  handleLeftArrow: () => void
-  handleRightArrow: () => void
-  fadeTransitionAnimatVar: Variants
-}
+  projectShown: ProjectDescrip;
+  setprojectShown: React.Dispatch<React.SetStateAction<ProjectDescrip>>;
+  handleLeftArrow: () => void;
+  handleRightArrow: () => void;
+  fadeTransitionAnimatVar: Variants;
+  darkMode: boolean;
+};
 
-const ProjectScreen: React.FC<ProjectScreenProps> = ({projectShown, handleLeftArrow, handleRightArrow, fadeTransitionAnimatVar}) =>{
+const ProjectScreen: React.FC<ProjectScreenProps> = ({projectShown, handleLeftArrow, handleRightArrow, fadeTransitionAnimatVar, darkMode}) =>{
   const [screenAnimateDirection, setscreenAnimateDirection] = useState<ScreenAnimateDirection>({
     xDirIni: 0,
     xDirExit: 0
@@ -88,6 +89,28 @@ const ProjectScreen: React.FC<ProjectScreenProps> = ({projectShown, handleLeftAr
     },
   });
 
+  const screenGlitchDark: GlitchHandle = useGlitch({
+    playMode:  "click",
+    createContainers: true,
+    hideOverflow: true,
+    glitchTimeSpan: {
+      start: 0,
+      end: 0.45,   
+    },
+    shake: {
+      velocity: 5
+    },
+    slice: {
+      count: 6, 
+      velocity: 16, 
+    },
+    timing: {
+      duration: 1000, 
+      iterations: 1,
+      easing: "ease-in-out" 
+    },
+  });
+
   return (
       <motion.div 
         className='projectScreenMainDiv'
@@ -103,9 +126,9 @@ const ProjectScreen: React.FC<ProjectScreenProps> = ({projectShown, handleLeftAr
               handleLeftArrow()
               handleScreenAnimationLeft()
             }}
-            ref={screenGlitch.ref}
+            ref={darkMode ? screenGlitchDark.ref : screenGlitch.ref}
           >
-            <img src='/arrow.svg' alt='arrowleft' className='arrImgLeft' />
+            <img src={darkMode ? '/arrowWhite.svg' : '/arrow.svg'} alt='arrowleft' className='arrImgLeft' />
           </div>
           <div 
             className='arrImgDiv' 
@@ -113,9 +136,9 @@ const ProjectScreen: React.FC<ProjectScreenProps> = ({projectShown, handleLeftAr
               handleRightArrow()
               handleScreenAnimationRight()
             }}
-            ref={screenGlitch.ref}
+            ref={darkMode ? screenGlitchDark.ref : screenGlitch.ref}
           >
-            <img src='/arrow.svg' alt='arrowright' className='arrImgRight' />
+            <img src={darkMode ? '/arrowWhite.svg' : '/arrow.svg'} alt='arrowright' className='arrImgRight' />
           </div>
         </div>
         <AnimatePresence mode='wait'>
@@ -128,7 +151,7 @@ const ProjectScreen: React.FC<ProjectScreenProps> = ({projectShown, handleLeftAr
           exit="exit"
           custom={screenAnimateDirection}
         >
-          <div className='screenImgDiv' style={{ "--urlcontent": `url(${projectShown.image})` } as React.CSSProperties}>
+          <div className='screenImgDiv' style={{ "--urlcontent": `url(${projectShown.image})`, "--opacityRange": darkMode ? 0.6 : 0.2 } as React.CSSProperties}>
             <img src={projectShown.image} alt={projectShown.name} />
           </div>
         </motion.div>

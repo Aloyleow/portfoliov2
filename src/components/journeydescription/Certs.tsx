@@ -5,10 +5,11 @@ import { motion, Variants } from 'motion/react'
 import React from 'react'
 
 type CertificationProps = {
-  desAnimatVar: Variants
-}
+  desAnimatVar: Variants;
+  darkMode: boolean;
+};
 
-const Certification: React.FC<CertificationProps> = ({desAnimatVar}) => {
+const Certification: React.FC<CertificationProps> = ({desAnimatVar, darkMode}) => {
   return (
         <div className='certDisplayDiv'>
           {certs.map((obj, index) => (
@@ -25,15 +26,15 @@ const Certification: React.FC<CertificationProps> = ({desAnimatVar}) => {
                 <img src={obj.image} alt={obj.name} className='certImg'/>
               </div>
               <div className='certNameDiv'>
-                <h5>{obj.name}</h5>
+                <h5 style={{color: darkMode ? "white" : "black"}}>{obj.name}</h5>
               </div>
             </div>
             <div className='certSecTypeDiv'>
             <div className='certSectorDiv'>
-              <h5>{obj.sector}</h5>
+              <h5 style={{color: darkMode ? "white" : "black"}}>{obj.sector}</h5>
             </div>
             <div className='certTypeDiv'>
-              <h5>{obj.type}</h5>
+              <h5 style={{color: darkMode ? "white" : "black"}}>{obj.type}</h5>
             </div>
             </div>
           </motion.div>

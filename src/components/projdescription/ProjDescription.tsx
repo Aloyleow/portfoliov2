@@ -3,23 +3,24 @@ import React from 'react'
 import { AnimatePresence, motion, Variants } from 'motion/react'
 
 type ProjectDescrip = {
-  index: string
-  name: string
-  front: string[]
-  back: string[]
-  data: string[]
-  dev: string[]
-  api: string[]
-  description: string
-  image: string
+  index: string;
+  name: string;
+  front: string[];
+  back: string[];
+  data: string[];
+  dev: string[];
+  api: string[];
+  description: string;
+  image: string;
 };
 
 type ProjectDescriptionProps = {
-  projectShown: ProjectDescrip
-  fadeTransitionAnimatVar: Variants
+  projectShown: ProjectDescrip;
+  fadeTransitionAnimatVar: Variants;
+  darkMode: boolean;
 }
 
-const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown, fadeTransitionAnimatVar}) => {
+const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown, fadeTransitionAnimatVar, darkMode}) => {
   return (
     <motion.div 
       className='projecDescriptionMainDiv'
@@ -27,6 +28,7 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({projectShown, fa
       initial="initial"
       animate="animate"
       exit="exit"
+      style={{color: darkMode ? "white" : "black"}}
     >
     <AnimatePresence>
       <div className='projectTechName'>

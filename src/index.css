@@ -3,12 +3,16 @@
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+}
+
+.routesDiv {
+  max-width: 100vw;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
 .pagesLayoutDiv {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: grid;
   place-items: center;
@@ -27,7 +31,7 @@
   fill: transparent;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000; 
-  stroke: black;
+  stroke: var(--fillColor);
   animation: headingAnimation 2.5s linear forwards; 
 }
 
@@ -36,7 +40,7 @@
     fill: transparent;
   }
   100% {
-    fill:#333333;
+    fill: var(--fillColor);
     stroke-dashoffset: 0;
   }
 }

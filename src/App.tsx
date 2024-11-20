@@ -10,6 +10,7 @@ import ProjectPage from "./pages/projects/ProjectPage";
 import JourneyPage from "./pages/journey/JourneyPage";
 import ContactPage from "./pages/contact/ContactPage";
 import Landing from "./components/landing/Landing";
+import Background from "./components/background/Background";
 
 
 const pagesAnimatVar: Variants = {
@@ -165,7 +166,8 @@ function App() {
   });
   
   return (
-    <div style={{backgroundColor: darkMode ? "black" : "white"}} className="routesDiv">
+    <div style={{backgroundColor: darkMode ? "black" : "white", position: "relative", zIndex: "11"}} className="routesDiv">
+      <Background darkMode={darkMode}/>
       <NavBar navGlitch={navGlitch} showMain={showMain} setDarkMode={setDarkMode} darkMode={darkMode}/>
       <AnimatePresence mode="wait">
       {!showMain && <Landing darkMode={darkMode} setShowMain={setShowMain} pagesAnimatVar={pagesAnimatVar}/>}

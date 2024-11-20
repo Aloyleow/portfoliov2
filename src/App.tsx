@@ -130,7 +130,7 @@ function App() {
       <NavBar navGlitch={navGlitch} showMain={showMain} setDarkMode={setDarkMode} darkMode={darkMode}/>
       <Background darkMode={darkMode}/>
       <AnimatePresence mode="wait">
-      {!showMain && <Landing setShowMain={setShowMain} pagesAnimatVar={pagesAnimatVar}/>}
+      {!showMain && <Landing darkMode={darkMode} setShowMain={setShowMain} pagesAnimatVar={pagesAnimatVar}/>}
       {showMain && 
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<MainPage darkMode={darkMode} showMain={showMain} pagesAnimatVar={pagesAnimatVar} arrowAnimateVar={arrowAnimateVar}/>} />

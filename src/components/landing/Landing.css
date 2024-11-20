@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+.landingImgDiv {
+  margin-bottom: 5%;
+}
+
 .landingImg {
   width: 20vh;
 }
@@ -22,7 +26,7 @@
 
 .landingSvg path{
   fill: transparent;
-  stroke: black;
+  stroke: var(--fillColor);
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   animation: textAnimation 5s linear, textAnimationFinish 5s linear forwards;  
@@ -33,14 +37,14 @@
     fill: transparent;
   }
   100% {
-    fill:#333333;
+    fill:var(--fillColor);
     stroke-dashoffset: 0;
   }
 }
 
 @keyframes textAnimationFinish {
   40% {
-    fill:#333333;
+    fill:var(--fillColor);
   }
   100% {
     fill: transparent;

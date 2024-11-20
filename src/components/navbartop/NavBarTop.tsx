@@ -39,7 +39,7 @@ const NavBarTop: React.FC<NavBarTopProps> = ({ handleConsoleView, navGlitch}) =>
         >
           <div>
             <div ref={navGlitch.ref}>
-              <img src="navbar/myLogo.svg" alt="myLogo" onClick={() => {handleConsoleView() }} className="navBarTopImg" />
+              <img src="/myLogo.svg" alt="myLogo" onClick={() => {handleConsoleView() }} className="navBarTopImg" />
             </div>
           </div>
         </motion.div>

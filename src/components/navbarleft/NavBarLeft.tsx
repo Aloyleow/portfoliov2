@@ -41,12 +41,12 @@ const settings: Settings = [
     imageSrcDark: "/navbar/sun.svg",   
     alttxt: "ColorThemeLogo",
   },
-  {
-    name: "language",
-    imageSrcLight: "/navbar/globeblack.svg",
-    imageSrcDark: "/navbar/globewhite.svg", 
-    alttxt: "LanguageLogo",
-  },
+  // {
+  //   name: "language",
+  //   imageSrcLight: "/navbar/globeblack.svg",
+  //   imageSrcDark: "/navbar/globewhite.svg", 
+  //   alttxt: "LanguageLogo",
+  // },
 ];
 
 

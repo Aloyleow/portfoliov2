@@ -42,8 +42,8 @@ const Ring: React.FC<RingProps> = ({setShowNavProject, darkMode}) => {
     createContainers: true,
     hideOverflow: true,
     glitchTimeSpan: {
-      start: isWindowHp ? 0.3 : 0,
-      end: 0.33,   
+      start: isWindowHp ? 0.1 : 0,
+      end: 0.2,   
     },
     shake: false,
     slice: {
@@ -51,7 +51,7 @@ const Ring: React.FC<RingProps> = ({setShowNavProject, darkMode}) => {
       velocity: 16, 
     },
     timing: {
-      duration: isWindowHp ? 15000 : 1000,  
+      duration: isWindowHp ? 10000 : 1000,  
       iterations: Infinity, 
     },
   });
@@ -69,6 +69,7 @@ const Ring: React.FC<RingProps> = ({setShowNavProject, darkMode}) => {
               style={{ "--position": index } as React.CSSProperties} 
               onClick={() => {
                 handleRingTypeOnClick()
+                setShowNavProject(true)
               }}>
               <motion.div
                 className="ringContent"
@@ -98,7 +99,6 @@ const Ring: React.FC<RingProps> = ({setShowNavProject, darkMode}) => {
                   animate="animate"
                   exit="exit"
                   custom={{ delay: index }}
-                  onAnimationComplete={() => setShowNavProject(true)}
                 >
                   <div ref={ringGlitch.ref}>
                     <img src={obj.icon} width="20px" height="20px" alt={`${obj.name} icon`} />

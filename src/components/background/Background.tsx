@@ -1,4 +1,3 @@
-import React from 'react';
 import './Background.css'
 import { useGlitch, GlitchHandle } from 'react-powerglitch';
 

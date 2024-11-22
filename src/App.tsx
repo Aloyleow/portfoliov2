@@ -167,7 +167,7 @@ function App() {
   
   return (
     <div style={{backgroundColor: darkMode ? "black" : "white", position: "relative", zIndex: "11"}} className="routesDiv">
-      <Background darkMode={darkMode}/>
+      <Background/>
       <NavBar navGlitch={navGlitch} showMain={showMain} setDarkMode={setDarkMode} darkMode={darkMode}/>
       <AnimatePresence mode="wait">
       {!showMain && <Landing darkMode={darkMode} setShowMain={setShowMain} pagesAnimatVar={pagesAnimatVar}/>}

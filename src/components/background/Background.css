@@ -20,7 +20,7 @@
 }
 
 
-/* .sparks::before,
+.sparks::before,
 .sparks::after {
   content: '';
   position: absolute;
@@ -28,12 +28,12 @@
   height: 100%;
   border-radius: 50%;
   transform-origin: center;
-} */
+}
 
 .sparks::before {
   background: #3176AF;
-  opacity: 0.2;
-  animation: drift ease alternate infinite;
+  opacity: 1;
+  /* animation: drift ease alternate infinite; */
 }
 
 /* .sparks::after {
@@ -192,9 +192,9 @@
   animation-iteration-count: infinite;
 }
 
-.sparkGlitch {
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
+/* .sparkGlitch {
+  height: 9px;
+  width: 9px;
+  border-radius: 90%;
   background-color: #3176AF;
-}
+} */

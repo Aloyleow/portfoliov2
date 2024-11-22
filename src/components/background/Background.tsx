@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Background.css'
 import { useGlitch, GlitchHandle } from 'react-powerglitch';
 
 
-type BackgroundProps = {
-  darkMode: boolean;
-};
-
-const Background: React.FC<BackgroundProps> = ({ darkMode }) => {
+const Background = () => {
 
   const sparkGlitch: GlitchHandle = useGlitch({
     playMode: "always",

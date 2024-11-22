@@ -69,6 +69,7 @@ const Ring: React.FC<RingProps> = ({setShowNavProject, darkMode}) => {
               style={{ "--position": index } as React.CSSProperties} 
               onClick={() => {
                 handleRingTypeOnClick()
+                setShowNavProject(true)
               }}>
               <motion.div
                 className="ringContent"
@@ -98,7 +99,6 @@ const Ring: React.FC<RingProps> = ({setShowNavProject, darkMode}) => {
                   animate="animate"
                   exit="exit"
                   custom={{ delay: index }}
-                  onAnimationComplete={() => setShowNavProject(true)}
                 >
                   <div ref={ringGlitch.ref}>
                     <img src={obj.icon} width="20px" height="20px" alt={`${obj.name} icon`} />

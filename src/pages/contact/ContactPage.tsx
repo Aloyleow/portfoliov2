@@ -246,7 +246,6 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
                                 handleChange(e)
                                 handleEmailState(e, 'user_name')
                               }}
-                              onFocus={(e) => e.preventDefault()}
                               isValid={touched.user_name && !errors.user_name}
                               isInvalid={!!errors.user_name}
                             />
@@ -276,7 +275,6 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
                                 handleChange(e)
                                 handleEmailState(e, 'message')
                               }}
-                              onFocus={(e) => e.preventDefault()}
                               isValid={touched.message && !errors.message}
                               isInvalid={!!errors.message}
                             />
@@ -306,7 +304,6 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
                               isValid={touched.contactemail && !errors.contactemail}
                               isInvalid={!!errors.contactemail}
                               style={{ marginBottom: "2%" }}
-                              onFocus={(e) => e.preventDefault()}
                             />
                             <Form.Control.Feedback type="invalid">
                               {errors.contactemail}
@@ -324,7 +321,6 @@ const ContactPage: React.FC<ContactPageProps> = ({ pagesAnimatVar, navGlitch, fa
                               }}
                               isValid={touched.contact_no && !errors.contact_no}
                               isInvalid={!!errors.contact_no}
-                              onFocus={(e) => e.preventDefault()}
                             />
                             <Form.Control.Feedback type="invalid">
                               {errors.contact_no}

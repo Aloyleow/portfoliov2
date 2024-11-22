@@ -61,7 +61,7 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ pagesAnimatVar, arrowAnimateV
   };
 
   const handleLeftArrow = () => {
-    if (projectNumber === 3) { setShowNav(true) }
+    if (projectNumber === projects.length - 2) { setShowNav(true) }
     if (projectNumber === 0) {
       setProjectNumber(projects.length - 1)
       handleProjectShown(projects.length - 1)
@@ -73,7 +73,7 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ pagesAnimatVar, arrowAnimateV
   };
 
   const handleRightArrow = () => {
-    if (projectNumber === 3) { setShowNav(true) }
+    if (projectNumber === projects.length - 2) { setShowNav(true) }
     if (projectNumber === projects.length - 1) {
       setProjectNumber(0)
       handleProjectShown(0)

@@ -9,12 +9,13 @@ type Exp = {
 
 export const experience: Exp[] = [
   {
-    name: "FigureLab.com (Full-Stack Dev FreeLance)",
+    name: "FigureLab.com (Web-Developer FreeLance)",
     src: "/journey/figureLab.png",
     alt: "figurelablogo",
     about: `
-    From Nov 2024 to Present.
-    Incharge of designing the frontend and developing the company's web app with Auth and CMS function at the backend.
+    From Nov 2024 to Dec 2024.
+    Developed and designed a Web Application for FigureLab.com (The Figure Lab PLT)
+    Independently managed the project lifecycle, including initial planning, wireframing, coding and develoyment.
     `
   },
   {
